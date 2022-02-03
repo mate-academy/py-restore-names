@@ -19,7 +19,7 @@ def test_first_name_is_none():
         }
     ]
 
-    restoring = restore_names(users)
+    restore_names(users)
 
     assert users == [
         {
@@ -39,7 +39,7 @@ def test_first_name_is_none():
         }
     ]
 
-    assert restoring is None
+    assert restore_names(users) is None
 
 
 def test_first_name_not_none():
@@ -62,6 +62,34 @@ def test_first_name_not_none():
             "first_name": "Jack",
             "last_name": "Holy",
             "full_name": "Kylie Holy",
+        },
+        {
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        },
+    ]
+
+
+def test_users_who_lost_first_name_key():
+
+    users = [
+        {
+            "last_name": "Tra",
+            "full_name": "Jenny Gib",
+        },
+        {
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        },
+    ]
+    restore_names(users)
+    assert users == [
+        {
+            "first_name": "Jenny",
+            "last_name": "Tra",
+            "full_name": "Jenny Gib",
         },
         {
             "first_name": "Mike",
