@@ -50,7 +50,7 @@ def test_first_name_not_none():
             "full_name": "Kylie Holy",
         },
         {
-            "first_name": "Mike",
+            "first_name": False,
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
@@ -64,7 +64,7 @@ def test_first_name_not_none():
             "full_name": "Kylie Holy",
         },
         {
-            "first_name": "Mike",
+            "first_name": False,
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
@@ -79,7 +79,7 @@ def test_users_who_lost_first_name_key():
             "full_name": "Jenny Gib",
         },
         {
-            "first_name": "Mike",
+            "first_name": "",
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
@@ -92,7 +92,7 @@ def test_users_who_lost_first_name_key():
             "full_name": "Jenny Gib",
         },
         {
-            "first_name": "Mike",
+            "first_name": "",
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
