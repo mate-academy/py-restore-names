@@ -1,8 +1,9 @@
 from string import ascii_lowercase
-from random import randint, choices, sample
+from random import randint, choices
 
 
 from app.restore_names import restore_names
+
 
 def create_random_user():
     first_name = ''.join(choices(
@@ -15,7 +16,11 @@ def create_random_user():
     ))
     full_name = first_name + ' ' + second_name
 
-    return {'full_name': full_name, 'second_name': second_name, 'first_name': first_name}
+    return {
+        'full_name': full_name,
+        'second_name': second_name,
+        'first_name': first_name,
+    }
 
 
 def test_empty_users():
