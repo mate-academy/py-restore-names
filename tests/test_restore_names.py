@@ -84,4 +84,3 @@ def test_when_first_name_lost():
     ]
     restore_names(users)
     assert users == expected
-    # assert users is not expected
