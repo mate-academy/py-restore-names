@@ -73,3 +73,38 @@ def test_when_first_name_is_not_exist(users, expected):
     restore_names(users)
     for test in range(len(users)):
         assert users[test]["first_name"] == expected[test]["first_name"]
+
+
+@pytest.mark.parametrize(
+    "users, expected",
+    [
+        ([
+             {
+                 "first_name": "Jack",
+                 "last_name": "Holy",
+                 "full_name": "Jack Holy",
+             },
+             {
+                 "first_name": "Alex",
+                 "last_name": "Zhidkov",
+                 "full_name": "Alex Zhidkov",
+             }
+         ],
+         [
+             {
+                 "first_name": "Jack",
+                 "last_name": "Holy",
+                 "full_name": "Jack Holy",
+             },
+             {
+                 "first_name": "Alex",
+                 "last_name": "Zhidkov",
+                 "full_name": "Alex Zhidkov",
+             }
+         ]),
+    ],
+)
+def test_when_all_right(users, expected):
+    restore_names(users)
+    for test in range(len(users)):
+        assert users[test]["first_name"] == expected[test]["first_name"]
