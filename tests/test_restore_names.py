@@ -117,3 +117,8 @@ def test_nothing_should_happen():
   },
 ]
 
+
+def test_none_return():
+    assert restore_names([]) is None
+
+
