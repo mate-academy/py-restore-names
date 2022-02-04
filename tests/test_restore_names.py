@@ -104,3 +104,35 @@ def test_empty_database():
     users = []
     restore_names(users)
     assert users == []
+
+
+def test_database_changing():
+    users = [
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": "Sasha",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+        ]
+
+    id_of_database = id(users)
+    restore_names(users)
+
+    assert users == [
+        {
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": "Sasha",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+        ]
+    assert id_of_database == id(users)
