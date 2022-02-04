@@ -22,7 +22,7 @@ def test_when_first_name_did_not_lose():
         },
         {
             "first_name": "Leonard",
-            "last_name": "Leonard",
+            "last_name": "Hofstadter",
             "full_name": "Leonard Hofstadter",
         }
     ]
@@ -84,3 +84,4 @@ def test_when_first_name_lost():
     ]
     restore_names(users)
     assert users == expected
+    # assert users is not expected
