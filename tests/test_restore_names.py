@@ -59,3 +59,18 @@ def test_are_other_keys_changed():
 
     assert users[0]["last_name"] == "Holy"
     assert users[1]["full_name"] == "Mike Adams"
+
+
+def test_full_information():
+    users = [
+        {
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+    ]
+    restore_names(users)
+
+    assert users[0]["first_name"] == "Jack"
+    assert users[0]["last_name"] == "Holy"
+    assert users[0]["full_name"] == "Jack Holy"
