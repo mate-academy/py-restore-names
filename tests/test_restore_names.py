@@ -1,4 +1,3 @@
-import copy
 from app.restore_names import restore_names
 
 
@@ -23,9 +22,13 @@ def test_without_restore():
             "full_name": "Mike Adams",
         },
     ]
-    values_for_test = copy.deepcopy(values)
-    restore_names(values_for_test)
-    assert values == values_for_test
+    restore_names(values)
+    assert values[0]["first_name"] == "Jack"
+    assert values[0]["last_name"] == "Holy"
+    assert values[0]["full_name"] == "Jack Holy"
+    assert values[1]["first_name"] == "Mike"
+    assert values[1]["last_name"] == "Adams"
+    assert values[1]["full_name"] == "Mike Adams"
 
 
 def test_with_restore():
@@ -40,18 +43,10 @@ def test_with_restore():
             "full_name": "Mike Adams",
         },
     ]
-    expected = [
-        {
-            "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        },
-        {
-            "first_name": "Mike",
-            "last_name": "Adams",
-            "full_name": "Mike Adams",
-        },
-    ]
-    values_for_test = copy.deepcopy(values)
-    restore_names(values_for_test)
-    assert expected == values_for_test
+    restore_names(values)
+    assert values[0]["first_name"] == "Jack"
+    assert values[0]["last_name"] == "Holy"
+    assert values[0]["full_name"] == "Jack Holy"
+    assert values[1]["first_name"] == "Mike"
+    assert values[1]["last_name"] == "Adams"
+    assert values[1]["full_name"] == "Mike Adams"
