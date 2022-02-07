@@ -38,8 +38,7 @@ def test_should_return_none():
 )
 def test_when_first_name_is_none(users, expected):
     restore_names(users)
-    for test in range(len(users)):
-        assert users[test]["first_name"] == expected[test]["first_name"]
+    assert users == expected
 
 
 @pytest.mark.parametrize(
@@ -71,8 +70,7 @@ def test_when_first_name_is_none(users, expected):
 )
 def test_when_first_name_is_not_exist(users, expected):
     restore_names(users)
-    for test in range(len(users)):
-        assert users[test]["first_name"] == expected[test]["first_name"]
+    assert users == expected
 
 
 @pytest.mark.parametrize(
@@ -106,5 +104,4 @@ def test_when_first_name_is_not_exist(users, expected):
 )
 def test_when_all_right(users, expected):
     restore_names(users)
-    for test in range(len(users)):
-        assert users[test]["first_name"] == expected[test]["first_name"]
+    assert users == expected
