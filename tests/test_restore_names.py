@@ -1,26 +1,4 @@
-from string import ascii_lowercase
-from random import randint, choices
-
-
 from app.restore_names import restore_names
-
-
-def create_random_user():
-    first_name = ''.join(choices(
-        ascii_lowercase,
-        k=randint(2, 50),
-    ))
-    second_name = ''.join(choices(
-        ascii_lowercase,
-        k=randint(2, 50),
-    ))
-    full_name = first_name + ' ' + second_name
-
-    return {
-        'full_name': full_name,
-        'second_name': second_name,
-        'first_name': first_name,
-    }
 
 
 def test_empty_users():
@@ -28,7 +6,11 @@ def test_empty_users():
 
 
 def test_unmatched_first_name():
-    tested_user = create_random_user()
+    tested_user = {
+        'full_name': 'full name',
+        'first_name': 'full',
+        'second_name': 'name'
+    }
     losted_user = {
         'second_name': tested_user['second_name'],
         'full_name': tested_user['full_name'],
@@ -38,7 +20,11 @@ def test_unmatched_first_name():
 
 
 def test_none_first_name():
-    tested_user = create_random_user()
+    tested_user = {
+        'full_name': 'full name',
+        'first_name': 'full',
+        'second_name': 'name'
+    }
     losted_user = {
         'second_name': tested_user['second_name'],
         'full_name': tested_user['full_name'],
