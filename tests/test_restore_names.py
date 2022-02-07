@@ -35,6 +35,11 @@ def test_first_name_is_none_or_first_name_is_lost():
 def test_some_names_exists():
     users = [
         {
+            "first_name": "Robert",
+            "last_name": "Stark",
+            "full_name": "Robert Stark",
+        },
+        {
             "first_name": "Mike",
             "last_name": "Tramp",
             "full_name": "Mike Adams",
@@ -51,6 +56,11 @@ def test_some_names_exists():
     ]
     restore_names(users)
     assert users == [
+        {
+            "first_name": "Robert",
+            "last_name": "Stark",
+            "full_name": "Robert Stark",
+        },
         {
             "first_name": "Mike",
             "last_name": "Tramp",
