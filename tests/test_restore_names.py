@@ -32,7 +32,7 @@ def test_first_name_is_none_or_first_name_is_lost():
     ]
 
 
-def test_some_name_exists():
+def test_some_names_exists():
     users = [
         {
             "first_name": "Mike",
