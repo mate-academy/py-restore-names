@@ -1,7 +1,7 @@
 from app.restore_names import restore_names
 
 
-def test_nothing_do_when_first_name_is():
+def test_nothing_do_when_first_name_exist():
     users = [
         {
             "first_name": "Jack",
