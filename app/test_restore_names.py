@@ -1,4 +1,3 @@
-import pytest
 from app.restore_names import restore_names
 
 
@@ -40,23 +39,28 @@ def test_correct_first_name():
         },
     ]
     restore_names(users)
-    assert users[0]["first_name"] == "Jack" and users[1]["first_name"] == "Mike"
+    assert users[0]["first_name"] == "Jack" \
+           and users[1]["first_name"] == "Mike"
 
 
 def test_none_first_name():
-    users = [{
+    users = [
+        {
             "first_name": None,
             "last_name": "Holy",
             "full_name": "Jack Holy"
-        }]
+        }
+    ]
     restore_names(users)
     assert users[0]["first_name"] == "Jack"
 
 
 def test_no_first_name():
-    users = [{
+    users = [
+        {
             "last_name": "Adams",
             "full_name": "Mike Adams"
-        }]
+        }
+    ]
     restore_names(users)
     assert users[0]["first_name"] == "Mike"
