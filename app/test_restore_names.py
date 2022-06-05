@@ -1,4 +1,3 @@
-import pytest
 from app.restore_names import restore_names
 
 
@@ -18,7 +17,7 @@ def test_should_result_function():
     assert restore_names(users) is None
 
 
-def test_should_result_function_when_first_name_is_None():
+def test_should_result_function_when_first_name_is_none():
     users = [
         {
             "first_name": None,
