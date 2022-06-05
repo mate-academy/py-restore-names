@@ -18,6 +18,6 @@ from app.restore_names import restore_names
                     "last_name": "Adams",
                     "full_name": "Mike Adams"}],
                   id="firstname added if it doesn't exist")])
-def test_correct_change(damaged_list, restored_list):
+def test_restored_data(damaged_list, restored_list):
     restore_names(damaged_list)
     assert damaged_list == restored_list
