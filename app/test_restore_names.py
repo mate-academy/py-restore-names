@@ -4,7 +4,7 @@ from app.restore_names import restore_names
 
 class TestRestoreNames:
     @pytest.mark.parametrize(
-        "users, expected",
+        "users,expected",
         [
             pytest.param(
                 [
@@ -21,7 +21,7 @@ class TestRestoreNames:
                         "full_name": "Jack Holy",
                     }
                 ],
-                id="should have first_name != None"),
+                id="should have 'first_name' != None"),
             pytest.param(
                 [
                     {
@@ -36,7 +36,7 @@ class TestRestoreNames:
                         "full_name": "Mike Adams",
                     },
                 ],
-                id="should have key first_name")
+                id="should have key 'first_name'")
         ]
     )
     def test_restore_names(self, users, expected):
