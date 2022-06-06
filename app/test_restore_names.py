@@ -40,4 +40,6 @@ class TestRestoreNames:
         ]
     )
     def test_restore_names(self, users, expected):
-        assert restore_names(users) == expected
+        user_data = users
+        restore_names(user_data)
+        assert user_data == expected
