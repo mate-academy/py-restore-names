@@ -42,4 +42,5 @@ class TestRestoreNames:
         ]
     )
     def test_first_name(self, given_list, expected_list):
-        assert restore_names(given_list) == expected_list
+        restore_names(given_list)
+        assert given_list == expected_list
