@@ -8,29 +8,24 @@ def test_if_first_name_none():
              "last_name": "Spice",
              "full_name": "Max Spice",
              },
-            {
-             "first_name": "Adam",
+            {"first_name": "Adam",
              "last_name": "Holy",
              "full_name": "Adam Holy",
             },
-            {
-             "last_name": "Break",
+            {"last_name": "Break",
              "full_name": "David Holy",
              },
         ]
     ) == [
-            {
-             "first_name": "Max",
+            {"first_name": "Max",
              "last_name": "Spice",
              "full_name": "Max Spice",
              },
-            {
-             "first_name": "Adam",
+            {"first_name": "Adam",
              "last_name": "Holy",
              "full_name": "Adam Holy",
             },
-            {
-             "first_name": "David",
+            {"first_name": "David",
              "last_name": "Break",
              "full_name": "David Holy",
              },
