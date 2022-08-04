@@ -5,12 +5,10 @@ import pytest
 @pytest.fixture()
 def user():
     return user_data(
-        [
-            {"first_name": "Adam",
-             "last_name": "Holy",
-             "full_name": "Adam Holy",
-             }
-         ]
+        [{"first_name": "Adam",
+          "last_name": "Holy",
+          "full_name": "Adam Holy",
+          }]
     )
 
 
