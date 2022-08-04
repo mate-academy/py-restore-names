@@ -17,10 +17,10 @@ def test_if_first_name_none():
              },
         ]
     ) == [
-    {"first_name": "Max",
-     "last_name": "Spice",
-     "full_name": "Max Spice",
-     },
+     {"first_name": "Max",
+      "last_name": "Spice",
+      "full_name": "Max Spice",
+      },
      {"first_name": "Adam",
       "last_name": "Holy",
       "full_name": "Adam Holy",
