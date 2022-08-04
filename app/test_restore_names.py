@@ -2,8 +2,7 @@ from app.restore_names import restore_names
 
 
 def test_if_first_name_none():
-    assert restore_names(
-        [
+    dictionary = [
             {"first_name": None,
              "last_name": "Spice",
              "full_name": "Max Spice",
@@ -16,7 +15,7 @@ def test_if_first_name_none():
              "full_name": "David Holy",
              },
         ]
-    ) == [
+    assert restore_names(dictionary) == [
        {"first_name": "Max",
         "last_name": "Spice",
         "full_name": "Max Spice",
