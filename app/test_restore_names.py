@@ -1,31 +1,46 @@
 from app.restore_names import restore_names
+import pytest
 
 
-def test_if_first_name_none():
-    dictionary = [
-        {"first_name": None,
-         "last_name": "Spice",
-         "full_name": "Max Spice",
-         },
+@pytest.fixture()
+def user():
+    return user_data(
+        [
+            {"first_name": "Adam",
+             "last_name": "Holy",
+             "full_name": "Adam Holy",
+             }
+         ]
+    )
+
+
+def test_if_first_name_none(user_data):
+    user_data["first_name"] = None
+
+    assert restore_names(user_data) == [
         {"first_name": "Adam",
          "last_name": "Holy",
          "full_name": "Adam Holy",
-         },
-        {"last_name": "Break",
-         "full_name": "David Holy",
-         },
+         }
     ]
-    assert restore_names(dictionary) == [
-        {"first_name": "Max",
-         "last_name": "Spice",
-         "full_name": "Max Spice",
-         },
+
+
+def test_if_first_name_no_user_data(user_data):
+    del user_data["first_name"]
+
+    assert restore_names(user_data) == [
         {"first_name": "Adam",
          "last_name": "Holy",
          "full_name": "Adam Holy",
-         },
-        {"first_name": "David",
-         "last_name": "Break",
-         "full_name": "David Holy",
-         },
+         }
+    ]
+
+
+def test_if_first_name_norm_user_data(user_data):
+
+    assert restore_names(user_data) == [
+        {"first_name": "Adam",
+         "last_name": "Holy",
+         "full_name": "Adam Holy",
+         }
     ]
