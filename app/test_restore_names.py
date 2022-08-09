@@ -30,6 +30,7 @@ def test_restore_only_missing_names(user_template):
 
 def test_restore_only_none_names(user_template):
     restore_names([user_template[1]])
+    
     assert [user_template[1]] == [
         {
             "first_name": "Mike",
