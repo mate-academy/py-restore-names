@@ -7,7 +7,7 @@ def users():
     return [{
         "first_name": None,
         "last_name": "Holy",
-        "full_name": "Jack Holy",
+        "full_name": "Jack Holy"
     },
         {
             "last_name": "Adams",
