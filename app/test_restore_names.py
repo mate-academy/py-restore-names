@@ -23,4 +23,3 @@ def test_after_fork_function(users):
         {'first_name': 'Jack', 'full_name': 'Jack Holy', 'last_name': 'Holy'},
         {'first_name': 'Mike', 'full_name': 'Mike Adams', 'last_name': 'Adams'}
     ]
-
