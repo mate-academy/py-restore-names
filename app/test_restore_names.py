@@ -17,7 +17,7 @@ def users():
     ]
 
 
-def test_test(users):
+def test_after_fork_function(users):
     restore_names(users)
     assert users == [
         {'first_name': 'Jack', 'full_name': 'Jack Holy', 'last_name': 'Holy'},
