@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.mark.parametrize(
-    "users, corrected_data",
+    "users_ls, corrected_data",
     [
         pytest.param(
             [
@@ -33,6 +33,6 @@ from app.restore_names import restore_names
         )
     ]
 )
-def test_check_if_first_name_will_be_corrected(users, corrected_data):
-    restore_names(users)
-    assert users == corrected_data
+def test_check_if_first_name_will_be_corrected(users_ls, corrected_data):
+    restore_names(users_ls)
+    assert users_ls == corrected_data
