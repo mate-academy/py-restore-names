@@ -58,7 +58,6 @@ class TestRestoreNamesClass:
             )
         ]
     )
-
     def test_restore_names_correctly(
             self,
             user_to_restore,
