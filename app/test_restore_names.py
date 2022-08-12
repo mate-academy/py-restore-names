@@ -1,20 +1,22 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.fixture()
 def users():
-    return [{"first_name": None,
-             "last_name": "Holy",
-             "full_name": "Jack Holy",
-             },
-            {
-             "last_name": "Adams",
-             "full_name": "Mike Adams",
-             },
-            {
-             "first_name": "David",
-             "last_name": "Jason",
-             "full_name": "David Jason",
+    return [{
+        "first_name": None,
+        "last_name": "Holy",
+        "full_name": "Jack Holy",
+        },
+      {
+        "last_name": "Adams",
+        "full_name": "Mike Adams",
+        },
+      {
+        "first_name": "David",
+        "last_name": "Jason",
+        "full_name": "David Jason",
     }]
 
 
@@ -29,7 +31,7 @@ def test_check_data_(users):
                       "last_name": "Adams",
                       "full_name": "Mike Adams",
                       },
-                    {"first_name": "David",
-                     "last_name": "Jason",
-                     "full_name": "David Jason",
-                     }]
+                     {"first_name": "David",
+                      "last_name": "Jason",
+                      "full_name": "David Jason",
+                      }]
