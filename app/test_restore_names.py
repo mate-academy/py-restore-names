@@ -1,6 +1,7 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.mark.parametrize(
     "users, expected_result",
     [
@@ -30,10 +31,9 @@ from app.restore_names import restore_names
             "Jack",
             id="Should NOT change first name"
         )
-        ]
+    ]
 )
 def test_restore_names(users, expected_result):
-    restore_names (users)
+    restore_names(users)
     for i in range(len(users)):
         assert users[i]["first_name"] == expected_result
-
