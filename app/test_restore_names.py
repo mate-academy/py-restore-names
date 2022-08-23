@@ -2,37 +2,11 @@ import pytest
 from app.restore_names import restore_names
 
 
-def test_add_first_name_value():
-    users = [
+@pytest.fixture()
+def users():
+    return [
         {
             "first_name": None,
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        },
-        {
-            "first_name": None,
-            "last_name": "Adams",
-            "full_name": "Mike Adams",
-        },
-    ]
-    restore_names(users)
-    assert users == [
-  {
-    "first_name": "Jack",
-    "last_name": "Holy",
-    "full_name": "Jack Holy",
-  },
-  {
-    "first_name": "Mike",
-    "last_name": "Adams",
-    "full_name": "Mike Adams",
-  },
-]
-
-
-def test_add_first_name_key_value():
-    users = [
-        {
             "last_name": "Holy",
             "full_name": "Jack Holy",
         },
@@ -40,7 +14,15 @@ def test_add_first_name_key_value():
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
+        {
+            "first_name": "Bob",
+            "last_name": "Smith",
+            "full_name": "Bob Smith",
+        },
     ]
+
+
+def test_add_first_name_key_value(users):
     restore_names(users)
     assert users == [
         {
@@ -52,5 +34,10 @@ def test_add_first_name_key_value():
             "first_name": "Mike",
             "last_name": "Adams",
             "full_name": "Mike Adams",
+        },
+        {
+            "first_name": "Bob",
+            "last_name": "Smith",
+            "full_name": "Bob Smith",
         },
     ]
