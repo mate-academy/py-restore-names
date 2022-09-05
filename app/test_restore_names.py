@@ -1,8 +1,10 @@
 from app.restore_names import restore_names
+import pytest
 
 
-def test_right_first_name():
-    users = [
+@pytest.fixture()
+def test_template():
+    yield [
         {
             "first_name": None,
             "last_name": "Holy",
@@ -13,8 +15,11 @@ def test_right_first_name():
             "full_name": "Mike Adams",
         },
     ]
-    restore_names(users)
-    assert users == [
+
+
+def test_right_first_name(test_template):
+    restore_names(test_template)
+    assert test_template == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
