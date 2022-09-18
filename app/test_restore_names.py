@@ -23,6 +23,6 @@ def test_when_first_name_equal_none(users_template):
     assert users_template[0]["first_name"] == "Jack"
 
 
-def test_first_name_is_lost(user_template):
-    restore_names(user_template)
-    assert user_template[1]["first_name"] == "Mike"
+def test_when_field_first_name_is_lost(users_template):
+    restore_names(users_template)
+    assert users_template[1]["first_name"] == "Mike"
