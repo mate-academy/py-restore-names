@@ -4,7 +4,7 @@ from app.restore_names import restore_names
 
 @pytest.fixture()
 def users_template():
-    users = [
+    return [
         {
             "first_name": None,
             "last_name": "Holy",
@@ -13,9 +13,8 @@ def users_template():
         {
             "last_name": "Adams",
             "full_name": "Mike Adams",
-        }
+        },
     ]
-    return users
 
 
 def test_restore_names_return_correct_names(users_template):
