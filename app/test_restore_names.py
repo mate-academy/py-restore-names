@@ -13,7 +13,7 @@ def users_template():
         {
             "last_name": "Adams",
             "full_name": "Mike Adams",
-        },
+        }
     ]
 
 
@@ -29,7 +29,7 @@ def test_restore_names_return_correct_names(users_template):
         "first_name": "Mike",
         "last_name": "Adams",
         "full_name": "Mike Adams",
-      },
+      }
     ]
 
 
