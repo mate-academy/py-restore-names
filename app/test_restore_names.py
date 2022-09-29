@@ -15,7 +15,7 @@ from app.restore_names import restore_names
                 "last_name": "Adams",
                 "full_name": "Mike Adams",
             }
-            ],
+        ],
             [
             {
                 "first_name": "Jack",
