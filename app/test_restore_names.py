@@ -20,7 +20,7 @@ from app.restore_names import restore_names
             {"first_name": "Mike",
              "last_name": "Adams",
              "full_name": "Mike Adams"},
-            id="if user has no first_name key, create key and take name from full_name"
+            id="if first_name is empty, create it and take name in full_name"
         )
     ]
 )
