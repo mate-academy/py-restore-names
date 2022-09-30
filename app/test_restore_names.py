@@ -5,7 +5,7 @@ from app.restore_names import restore_names
 @pytest.mark.parametrize(
     "users,users_with_restored_names",
     [
-        (
+        pytest.param(
             [
                 {
                     "first_name": None,
@@ -20,8 +20,9 @@ from app.restore_names import restore_names
                     "full_name": "Jack Holy",
                 }
             ],
+            id="test should add name if first_name None"
         ),
-        (
+        pytest.param(
             [
                 {
                     "last_name": "Adams",
@@ -35,8 +36,9 @@ from app.restore_names import restore_names
                     "full_name": "Mike Adams",
                 }
             ],
+            id="test should add name if first_name not exist"
         ),
-        ([], []),
+        pytest.param([], [], id="test should do nothing if list is empty"),
     ],
 )
 def test_restore_names(users, users_with_restored_names):
