@@ -49,6 +49,10 @@ class TestRestoreNames:
             )
         ]
     )
-    def test_restore_names_correctly(self, users_incoming_list, users_out_list):
+    def test_restore_names_correctly(
+            self,
+            users_incoming_list,
+            users_out_list
+    ):
         restore_names(users_incoming_list)
         assert users_incoming_list == users_out_list
