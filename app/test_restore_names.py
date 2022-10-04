@@ -20,16 +20,16 @@ def user_template():
 def test_restore_names(user_template):
     users = user_template
     result = [
-      {
-        "first_name": "Jack",
-        "last_name": "Holy",
-        "full_name": "Jack Holy",
-      },
-      {
-        "first_name": "Mike",
-        "last_name": "Adams",
-        "full_name": "Mike Adams",
-      },
+        {
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        },
     ]
 
     restore_names(users)
