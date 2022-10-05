@@ -18,7 +18,7 @@ def user_template() -> list:
     return users
 
 
-def test_restore_names(user_template) -> None:
+def test_restore_names(user_template: list) -> None:
     restore_names(user_template)
     assert user_template == [
         {
