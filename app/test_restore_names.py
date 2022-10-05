@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture
-def incoming_data():
+def incoming_data() -> list[dict]:
     return [
         {
             "first_name": None,
@@ -18,7 +18,7 @@ def incoming_data():
 
 
 @pytest.fixture
-def outcoming_data():
+def outcoming_data() -> list[dict]:
     return [
         {
             "first_name": "Jack",
@@ -33,7 +33,8 @@ def outcoming_data():
     ]
 
 
-def test_restore_names(incoming_data, outcoming_data) -> None:
+def test_restore_names(incoming_data: list[dict],
+                       outcoming_data: list[dict]) -> None:
     assert incoming_data != outcoming_data
     restore_names(incoming_data)
     assert incoming_data == outcoming_data
