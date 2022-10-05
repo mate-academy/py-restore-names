@@ -3,8 +3,8 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def users_template() -> list:
-    return [
+def user_template():
+    users = [
         {
             "first_name": None,
             "last_name": "Holy",
@@ -13,14 +13,14 @@ def users_template() -> list:
         {
             "last_name": "Adams",
             "full_name": "Mike Adams",
-        },
+        }
     ]
+    return users
 
 
-def test_restore_name(users_template: function) -> None:
-    restore_names(users_template)
-
-    assert users_template == [
+def test_restore_names(user_template):
+    restore_names(user_template)
+    assert user_template == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -30,9 +30,9 @@ def test_restore_name(users_template: function) -> None:
             "first_name": "Mike",
             "last_name": "Adams",
             "full_name": "Mike Adams",
-        },
+        }
     ]
 
 
-def test_restore_names_should_return_none(user_template: function) -> None:
+def test_restore_names_should_return_none(user_template) -> None:
     assert restore_names(user_template) is None
