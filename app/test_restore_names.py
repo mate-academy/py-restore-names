@@ -17,7 +17,7 @@ def users_template() -> list:
     ]
 
 
-def test_restore_name(users_template) -> None:
+def test_restore_name(users_template: function) -> None:
     restore_names(users_template)
 
     assert users_template == [
@@ -32,3 +32,7 @@ def test_restore_name(users_template) -> None:
             "full_name": "Mike Adams",
         },
     ]
+
+
+def test_restore_names_should_return_none(user_template: function) -> None:
+    assert restore_names(user_template) is None
