@@ -5,7 +5,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def user_info():
+def user_info() -> list:
     info = [
         {
             "first_name": None,
@@ -17,10 +17,10 @@ def user_info():
             "full_name": "Mike Adams",
         },
     ]
-    yield info
+    return info
 
 
-def test_restore_name_functions(user_info):
+def test_restore_name_functions(user_info: list) -> None:
     restore_names(user_info)
     assert user_info == [
         {
@@ -34,5 +34,3 @@ def test_restore_name_functions(user_info):
             "full_name": "Mike Adams",
         },
     ]
-
-
