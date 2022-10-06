@@ -4,7 +4,7 @@ from app.restore_names import restore_names
 
 class TestExpectListRestoreNames:
 
-    def test_with_full_name(self):
+    def test_with_full_name(self) -> None:
         test_users = [
             {
                 "first_name": None,
@@ -56,7 +56,7 @@ class TestExpectListRestoreNames:
 
 
 class TestErrorsRestoreNames:
-    def test_without_full_name(self):
+    def test_without_full_name(self) -> None:
         team = [
             {
                 "second_name": "Bill",
