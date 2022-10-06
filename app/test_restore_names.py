@@ -18,7 +18,7 @@ def users_list() -> list[dict]:
     return users
 
 
-def test_should_return_correct_first_name(users_list) -> None:
+def test_should_return_correct_first_name(users_list: list[dict]) -> None:
     restore_names(users_list)
     assert users_list == \
         [
