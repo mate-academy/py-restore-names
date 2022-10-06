@@ -32,6 +32,9 @@ from app.restore_names import restore_names
         ),
     ]
 )
-def test_restore_first_name(user_before: list[dict], user_after: list[dict]) -> None:
+def test_restore_first_name(
+        user_before: list[dict],
+        user_after: list[dict]
+) -> None:
     assert restore_names(user_before) is None
     assert user_before == user_after
