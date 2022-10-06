@@ -27,7 +27,7 @@ from app.restore_names import restore_names
         ),
     ]
 )
-def test_correct_first_name(users_list: list, expected_result: str):
+def test_correct_first_name(users_list: list, expected_result: str) -> None:
     restore_names(users_list)
     for user in users_list:
         assert user["first_name"] == expected_result
