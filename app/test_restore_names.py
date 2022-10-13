@@ -1,8 +1,11 @@
+import pytest
+
 from app.restore_names import restore_names
 
 
-def test_check_users_none() -> None:
-    users = [
+@pytest.fixture()
+def user_template() -> list:
+    yield [
         {
             "first_name": None,
             "last_name": "Holy",
@@ -13,7 +16,11 @@ def test_check_users_none() -> None:
             "full_name": "Mike Adams",
         },
     ]
-    assert restore_names(users) == [
+
+
+def test_check_users_none(user_template: list) -> None:
+    restore_names(user_template)
+    assert user_template == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
