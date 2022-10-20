@@ -23,7 +23,7 @@ def test_should_create_first_name_if_its_not_existed(
 ) -> None:
     del users_template[0]["first_name"]
     restore_names(users_template)
-    assert users_template[0]["first_name"] == "Mike"
+    assert users_template[0]["first_name"] == "Jack"
 
 
 def test_should_return_none(users_template: list) -> None:
