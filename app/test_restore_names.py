@@ -34,6 +34,6 @@ def test_if_first_name_not_in_key(users_name):
         {
             "first_name": "Mike",
             "last_name": "Adams",
-            "full_name": "Mike Adamsu",
+            "full_name": "Mike Adams",
         }
     ]
