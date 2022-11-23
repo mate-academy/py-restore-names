@@ -40,8 +40,9 @@ class TestAddValueClass:
         ],
     )
     def test_check_full_user_name_and_name_is_none(self,
-                                  initial_classes: list,
-                                  expected_classes: list) -> None:
-        # print(initial_classes)
+                                                   initial_classes: list,
+                                                   expected_classes:
+                                                   list) -> None:
+
         restore_names(initial_classes)
         assert initial_classes == expected_classes
