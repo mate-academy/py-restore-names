@@ -39,8 +39,9 @@ class TestAddValueClass:
             ),
         ],
     )
-    def test_check_full_user_name(self,
+    def test_check_full_user_name_and_name_is_none(self,
                                   initial_classes: list,
                                   expected_classes: list) -> None:
-        assert restore_names(initial_classes) \
-               == restore_names(expected_classes)
+        # print(initial_classes)
+        restore_names(initial_classes)
+        assert initial_classes == expected_classes
