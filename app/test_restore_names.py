@@ -1,8 +1,7 @@
-import pytest
 from app.restore_names import restore_names
 
 
-def test_name_type():
+def test_name_type() -> None:
     users = [
         {
             "first_name": None,
@@ -19,7 +18,7 @@ def test_name_type():
     assert isinstance(users[0]["first_name"], str)
 
 
-def test_name_first():
+def test_name_first() -> None:
     users = [
         {
             "first_name": None,
@@ -36,7 +35,7 @@ def test_name_first():
     assert users[0]["first_name"] == "Jack"
 
 
-def test_name_second():
+def test_name_second() -> None:
     users = [
         {
             "first_name": None,
