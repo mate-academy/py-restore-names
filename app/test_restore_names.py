@@ -1,7 +1,7 @@
 from app.restore_names import restore_names
 
 
-def test_if_first_name_in_dict():
+def test_if_first_name_in_dict() -> None:
     users = [
         {
             "first_name": None,
