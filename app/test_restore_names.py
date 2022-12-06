@@ -2,7 +2,8 @@ import pytest
 from app.restore_names import restore_names
 
 
-def test_if_user_first_name_is_none_or_empty() -> None:
+@pytest.fixture()
+def users_template() -> list:
     users = [
         {
             "first_name": None,
@@ -14,8 +15,12 @@ def test_if_user_first_name_is_none_or_empty() -> None:
             "full_name": "Mike Adams",
         },
     ]
-    restore_names(users)
-    assert users == [
+    return users
+
+
+def test_func(users_template: list) -> None:
+    restore_names(users_template)
+    assert users_template == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
