@@ -18,7 +18,7 @@ def user_template() -> list:
     return users
 
 
-def test_function_returns_nothing(user_template: list) -> None:
+def test_function_returns_none(user_template: list) -> None:
     assert restore_names(user_template) is None
 
 
