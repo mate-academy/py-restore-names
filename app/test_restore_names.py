@@ -24,5 +24,5 @@ def test_function_returns_none(user_template: list) -> None:
 
 def test_function_restore_names(user_template: list) -> None:
     restore_names(user_template)
-    assert user_template[0]["first_name"] == "Jake"
+    assert user_template[0]["first_name"] == "Jack"
     assert user_template[1]["first_name"] == "Mike"
