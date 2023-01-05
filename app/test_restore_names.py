@@ -1,10 +1,11 @@
+from typing import List
 import pytest
 from app.restore_names import restore_names
 
 
 @pytest.mark.parametrize(
     "input_list, output_list",
-    [
+    [(
         [
             {
                 "first_name": None,
@@ -14,7 +15,7 @@ from app.restore_names import restore_names
             {
                 "last_name": "Adams",
                 "full_name": "Mike Adams",
-            },
+            }
         ],
         [
             {
@@ -28,11 +29,11 @@ from app.restore_names import restore_names
                 "full_name": "Mike Adams",
             },
         ]
-    ]
+    )]
 )
 def test_func_is_working(
-        input_list: list,
-        output_list: list
+        input_list: List[dict],
+        output_list: List[dict]
 ) -> None:
     restore_names(input_list)
     assert input_list == output_list
