@@ -22,7 +22,7 @@ def users_template() -> list:
     ]
 
 
-def test_restore_names(users_template) -> None:
+def test_restore_names(users_template: list) -> None:
     restore_names(users_template)
     assert users_template == [
         {
