@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture
-def user_damaged() -> list:
+def user_template() -> list:
     return [
         {
             "first_name": None,
