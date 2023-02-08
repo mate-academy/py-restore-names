@@ -1,5 +1,4 @@
 import pytest
-from unittest import mock
 from app.restore_names import restore_names
 
 
@@ -32,9 +31,3 @@ def test_restore_names_works_correctly(users_template: callable) -> None:
             "full_name": "Mike Adams",
         },
     ]
-
-
-def test_restore_names_was_called(users_template: callable) -> None:
-    mock_function = mock.MagicMock()
-    mock_function(users_template)
-    mock_function.assert_called_once()
