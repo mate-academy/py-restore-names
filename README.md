@@ -41,5 +41,5 @@ users == [
 
 Run `pytest app/` to check if function pass your tests.
 
-Run `pytest --numprocesses=auto tests/` to check if your tests cover all boundary conditions
+Run `` to check if your tests cover all boundary conditions
 and pass task tests.
