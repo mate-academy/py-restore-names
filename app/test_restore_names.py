@@ -1,6 +1,3 @@
-from typing import List, Dict
-from unittest import mock
-
 import pytest
 from app.restore_names import restore_names
 
@@ -38,6 +35,7 @@ def user_before_template() -> list:
     return users_before
 
 
-def test_restore_names(user_before_template, user_after_template) -> None:
+def test_restore_names(user_before_template: list,
+                       user_after_template: list) -> None:
     restore_names(user_before_template)
     assert user_before_template == user_after_template
