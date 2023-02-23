@@ -35,6 +35,6 @@ def users_output() -> list:
     return user
 
 
-def test_restore_names(users_input, users_output) -> None:
+def test_restore_names(users_input: list, users_output: list) -> None:
     restore_names(users_input)
     assert users_input == users_output
