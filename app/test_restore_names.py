@@ -2,7 +2,6 @@ import pytest
 from app.restore_names import restore_names
 
 
-
 @pytest.mark.parametrize(
     "data_dict,r_dict",
     [
