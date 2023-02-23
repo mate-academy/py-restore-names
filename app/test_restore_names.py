@@ -56,6 +56,6 @@ from app.restore_names import restore_names
         ),
     ],
 )
-def test_restore_names(users: List[dict], expected_output: List[dict]):
+def test_restore_names(users: List[dict], expected_output: List[dict]) -> None:
     restore_names(users)
     assert users == expected_output
