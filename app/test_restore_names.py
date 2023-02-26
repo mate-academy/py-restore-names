@@ -27,6 +27,6 @@ def test_fills_first_name_from_full_name(users_template: list) -> None:
     assert users_template[0]["first_name"] == "Jack"
 
 
-def test_raises_type_error(users_template) -> None:
+def test_raises_type_error(users_template: list) -> None:
     with pytest.raises(TypeError):
         restore_names(1)
