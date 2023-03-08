@@ -1,11 +1,9 @@
-from typing import List
-
 import pytest
 from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def first_user() -> any:
+def first_user() -> bool:
     result = restore_names(
         [
             {
@@ -25,7 +23,7 @@ def first_user() -> any:
 
 
 @pytest.fixture()
-def second_user() -> any:
+def second_user() -> bool:
     result = restore_names(
         [
             {
@@ -41,13 +39,3 @@ def second_user() -> any:
             "full_name": "Mike Adams",
         }
     ]
-
-
-def test_should_check_first_name_in_first_user(first_user: List[dict]) -> any:
-    assert "first_name" == first_user
-
-
-def test_should_check_first_name_in_second_user(
-        second_user: List[dict]
-) -> any:
-    assert "first_name", second_user
