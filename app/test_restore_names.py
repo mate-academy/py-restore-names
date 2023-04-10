@@ -1,9 +1,7 @@
-import pytest
 from app.restore_names import restore_names
 
 
-def test_restore_names():
-    # Test case with one user missing first name
+def test_restore_names() -> None:
     users = [
         {
             "first_name": None,
@@ -14,7 +12,6 @@ def test_restore_names():
     restore_names(users)
     assert users[0]["first_name"] == "John"
 
-    # Test case with one user missing full name
     users = [
         {
             "first_name": "Sarah",
@@ -24,7 +21,6 @@ def test_restore_names():
     restore_names(users)
     assert users[0]["first_name"] == "Sarah"
 
-    # Test case with one user with a first name
     users = [
         {
             "first_name": "Tom",
@@ -35,7 +31,6 @@ def test_restore_names():
     restore_names(users)
     assert users[0]["first_name"] == "Tom"
 
-    # Test case with multiple users
     users = [
         {
             "first_name": None,
@@ -57,7 +52,6 @@ def test_restore_names():
     assert users[1]["first_name"] == "Mike"
     assert users[2]["first_name"] == "Mary"
 
-    # Test case with all users already having first name
     users = [
         {
             "first_name": "John",
