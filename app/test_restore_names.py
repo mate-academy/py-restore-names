@@ -7,11 +7,11 @@ from app.restore_names import restore_names
     [
         pytest.param(
             [
-              {
-                "first_name": None,
-                "last_name": "Holy",
-                "full_name": "Jack Holy",
-              }
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                }
             ],
             [
                 {
