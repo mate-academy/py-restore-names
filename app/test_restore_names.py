@@ -12,7 +12,8 @@ def user_template_without_first_name() -> list:
     ]
 
 
-def test_first_name_not_in_users(user_template_without_first_name) -> None:
+def test_first_name_not_in_users(user_template_without_first_name: list
+                                 ) -> None:
     restore_names(user_template_without_first_name)
     assert user_template_without_first_name[0]["first_name"] == "Mike"
 
@@ -26,6 +27,6 @@ def user_template_first_name_none() -> list:
     }]
 
 
-def test_first_name_is_none(user_template_first_name_none) -> None:
+def test_first_name_is_none(user_template_first_name_none: list) -> None:
     restore_names(user_template_first_name_none)
     assert user_template_first_name_none[0]["first_name"] == "Jack"
