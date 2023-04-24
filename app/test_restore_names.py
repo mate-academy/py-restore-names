@@ -1,8 +1,7 @@
-import pytest
 from app.restore_names import restore_names
 
 
-def test_should_check_function_with_users_first_name_equal_to_None():
+def test_should_check_function_with_users_first_name_equal_to_none() -> None:
     users = [
         {
             "first_name": None,
@@ -18,7 +17,7 @@ def test_should_check_function_with_users_first_name_equal_to_None():
     assert users[0]["first_name"] == "Jack"
 
 
-def test_should_check_function_with_users_whose_first_name_is_missing():
+def test_should_check_function_with_users_first_name_is_missing() -> None:
     users = [
         {
             "first_name": None,
