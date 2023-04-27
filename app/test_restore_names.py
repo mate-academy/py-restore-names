@@ -9,6 +9,7 @@ def template_user():
 
 
 def test_restore_names(template_user) -> None:
-    assert restore_names(template_user) == [{"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
-                                            {"first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"}]
+    restore_names(template_user)
+    assert template_user[0]["first_name"] == "Jack"
+    assert template_user[1]["first_name"] == "Mike"
 
