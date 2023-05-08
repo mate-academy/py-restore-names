@@ -17,7 +17,7 @@ def user() -> list[dict]:
     ]
 
 
-def test_restore_names(user) -> None:
+def test_restore_names(user: list[dict]) -> None:
     restore_names(user)
     assert user[0]["first_name"] == "Jack"
     assert user[1]["first_name"] == "Mike"
