@@ -4,7 +4,7 @@ from app.restore_names import restore_names
 
 class TestRestoreNames:
     @pytest.mark.parametrize(
-        "users, restored_users",
+        "user, restored_user",
         [
             (
                 [
@@ -36,8 +36,8 @@ class TestRestoreNames:
     )
     def test_restore_names(
             self,
-            users: list[dict],
-            restored_users: list[dict]
+            user: list[dict],
+            restored_user: list[dict]
     ) -> None:
-        restore_names(users)
-        assert users == restored_users
+        restore_names(user)
+        assert user == restored_user
