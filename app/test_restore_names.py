@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def user_name():
+def user_name() -> list:
     return [
         {
             "first_name": "Jack",
@@ -17,7 +17,7 @@ def user_name():
         }]
 
 
-def test_should_set_correct_name(user_name) -> None:
+def test_should_set_correct_name(user_name: list) -> None:
     names_to_restore = [
         {
             "first_name": None,
