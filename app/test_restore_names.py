@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def user_dictionary():
+def user_dictionary() -> dict:
     yield [
         {
             "first_name": None,
@@ -14,7 +14,7 @@ def user_dictionary():
 
 
 @pytest.fixture()
-def another_user_dictionary():
+def another_user_dictionary() -> dict:
     yield [
         {
             "last_name": "Adams",
@@ -23,7 +23,10 @@ def another_user_dictionary():
     ]
 
 
-def test_restore_names_function(user_dictionary, another_user_dictionary):
+def test_restore_names_function(
+        user_dictionary: dict,
+        another_user_dictionary: dict
+) -> None:
     restore_names(user_dictionary)
     restore_names(another_user_dictionary)
     assert user_dictionary[0]["first_name"] == "Jack"
