@@ -3,8 +3,8 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def user_return_name() -> None:
-    yield [
+def user_return_name() -> list:
+    return [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -19,9 +19,7 @@ def user_return_name() -> None:
 
 
 def test_should_return_dict_with_first_name(user_return_name: list) -> None:
-    users = user_return_name
-    restore_names(users)
-    assert users == [
+    users = [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -33,3 +31,5 @@ def test_should_return_dict_with_first_name(user_return_name: list) -> None:
             "full_name": "Mike Adams",
         },
     ]
+    restore_names(users)
+    assert user_return_name == users
