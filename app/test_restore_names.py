@@ -1,7 +1,5 @@
 from app.restore_names import restore_names
 
-import pytest
-
 
 def test_check_if_first_name_valid() -> None:
     users = [
