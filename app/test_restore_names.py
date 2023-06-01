@@ -34,6 +34,9 @@ def output_users_template() -> List[dict]:
     ]
 
 
-def test_restore_names(input_users_template, output_users_template) -> None:
+def test_restore_names(
+        input_users_template: List[dict],
+        output_users_template: List[dict]
+) -> None:
     restore_names(input_users_template)
     assert input_users_template == output_users_template
