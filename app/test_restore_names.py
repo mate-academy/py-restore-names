@@ -1,6 +1,7 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.fixture()
 def user_template() -> list:
     return [
