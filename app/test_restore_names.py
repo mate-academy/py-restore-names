@@ -12,6 +12,7 @@ new_user = [
     },
 ]
 
+
 def test_restore_names() -> None:
     restore_names(new_user)
     assert new_user == [
