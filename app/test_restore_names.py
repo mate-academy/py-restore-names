@@ -44,5 +44,5 @@ def test_function_changes_state(
         test_func_data: Callable,
         test_func_result: Callable
 ) -> None:
-    use_funk = restore_names(test_func_data)
-    use_funk.assertEqual(test_func_data.state, test_func_result)
+    restore_names(test_func_data)
+    assert test_func_data == test_func_result
