@@ -18,7 +18,7 @@ def user_w_missing_1st_name() -> list:
 
 
 @pytest.fixture()
-def test_and_add_first_name(user_w_missing_1st_name):
+def user_w_current_1st_name(user_w_missing_1st_name):
     return [
         {
             "first_name": "Jack",
@@ -41,7 +41,7 @@ def test_restore_names_with_missing_first_name(user_w_missing_1st_name):
 
 
 # Test case for users with existing first_name
-def test_restore_names_with_existing_first_name(test_and_add_first_name):
-    restore_names(test_and_add_first_name)
-    assert test_and_add_first_name[0]["first_name"] == "Jack"
-    assert test_and_add_first_name[1]["first_name"] == "Mike"
+def test_restore_names_with_existing_first_name(user_w_current_1st_name):
+    restore_names(user_w_current_1st_name)
+    assert user_w_current_1st_name[0]["first_name"] == "Jack"
+    assert user_w_current_1st_name[1]["first_name"] == "Mike"
