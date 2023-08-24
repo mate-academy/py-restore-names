@@ -15,6 +15,11 @@ class TestRestoreNames(TestCase):
                 "last_name": "Adams",
                 "full_name": "Mike Adams",
             },
+            {
+                "first_name": "John",
+                "last_name": "Adams",
+                "full_name": "John Adams",
+            },
         ]
 
     def test_change_first_name(self) -> None:
@@ -24,3 +29,8 @@ class TestRestoreNames(TestCase):
     def test_add_first_name(self) -> None:
         restore_names(self.users)
         assert self.users[1]["first_name"] == "Mike"
+
+    def test_nothing_changed_if_has_name(self) -> None:
+        name_before = self.users[2]["first_name"]
+        restore_names(self.users)
+        assert name_before == self.users[2]["first_name"]
