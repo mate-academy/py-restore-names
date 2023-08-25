@@ -1,43 +1,11 @@
+import pytest
+
 from app.restore_names import restore_names
 
 
-def test_restore_if_name_is_none() -> None:
-    user = [
-        {
-            "first_name": None,
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        }
-    ]
-    restore_names(user)
-    assert user == [
-        {
-            "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy"
-        }
-    ]
-
-
-def test_restore_if_name_is_null() -> None:
-    user = [
-        {
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        }
-    ]
-    restore_names(user)
-    assert user == [
-        {
-            "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy"
-        }
-    ]
-
-
-def test_restore_if_couple_users_in_list() -> None:
-    users = [
+@pytest.fixture()
+def users_template() -> list:
+    return [
         {
             "first_name": None,
             "last_name": "Holy",
@@ -48,8 +16,11 @@ def test_restore_if_couple_users_in_list() -> None:
             "full_name": "Mike Adams",
         },
     ]
-    restore_names(users)
-    assert users == [
+
+
+@pytest.fixture()
+def expected_result() -> list:
+    return [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -61,3 +32,11 @@ def test_restore_if_couple_users_in_list() -> None:
             "full_name": "Mike Adams",
         },
     ]
+
+
+def test_restore_if_couple_users_in_list(
+        users_template: list,
+        expected_result: list
+) -> None:
+    restore_names(users_template)
+    assert users_template == expected_result
