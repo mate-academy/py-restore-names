@@ -11,7 +11,7 @@ def users_list() -> Generator:
     ]
 
 
-def test_first_name_in_users_list(users_list: list[dict]) -> None:
+def test_restore_names(users_list: list[dict]) -> None:
     restore_names(users_list)
     assert users_list[0]["first_name"] == "Ray"
     assert users_list[1]["first_name"] == "Ray"
