@@ -9,7 +9,6 @@ def test_restore_names_with_none_first_names() -> str:
             "full_name": "Jack Holy",
         },
         {
-            "first_name": "",
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
