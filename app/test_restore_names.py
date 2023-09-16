@@ -1,4 +1,3 @@
-import pytest
 from app.restore_names import restore_names
 
 
@@ -31,7 +30,7 @@ def test_missing_first_name() -> None:
     assert users == expected_results
 
 
-def test_restore_names_with_users_missing_and_some_with_first_name():
+def test_restore_names_with_users_missing_and_some_with_first_name() -> None:
     users = [
         {
             "first_name": "John",
