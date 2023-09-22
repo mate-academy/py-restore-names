@@ -33,6 +33,6 @@ from app.restore_names import restore_names
          "full_name": "John Konor"
      }])
 ])
-def test_restore_name(users, expected):
+def test_restore_name(users: str, expected: str) -> None:
     restore_names(users)
     assert users == expected
