@@ -4,7 +4,7 @@ from app.restore_names import restore_names
 
 class TestRestoreNames(unittest.TestCase):
 
-    def test_restore_names_with_none_first_name(self):
+    def test_restore_names_with_none_first_name(self) -> None:
         users = [
             {
                 "first_name": None,
@@ -21,7 +21,7 @@ class TestRestoreNames(unittest.TestCase):
         self.assertEqual(users[0]["first_name"], "Jack")
         self.assertEqual(users[1]["first_name"], "Mike")
 
-    def test_restore_names_with_existing_first_name(self):
+    def test_restore_names_with_existing_first_name(self) -> None:
         users = [
             {
                 "first_name": "John",
@@ -38,7 +38,7 @@ class TestRestoreNames(unittest.TestCase):
         self.assertEqual(users[0]["first_name"], "John")
         self.assertEqual(users[1]["first_name"], "Alice")
 
-    def test_restore_names_with_no_full_name(self):
+    def test_restore_names_with_no_full_name(self) -> None:
         users = [
             {
                 "first_name": None,
