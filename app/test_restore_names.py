@@ -54,5 +54,5 @@ class TestRestoreNames(unittest.TestCase):
         self.assertEqual(users[1]["first_name"], "Adams")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
