@@ -18,7 +18,7 @@ from app.restore_names import restore_names
         (
             [
                 {
-                    "first_name": None,
+                    "first_name": "Jack",
                     "last_name": "Holy",
                     "full_name": "Jack Holy",
                 },
@@ -32,6 +32,15 @@ from app.restore_names import restore_names
             "Adam",
             1
         ),
+        (
+            [{
+                "first_name": "Adam",
+                "last_name": "Holy",
+                "full_name": "Jack Holy",
+            }],
+            "Jack",
+            0
+        )
     ]
 )
 def test_s(ls: list[dict], first_name: str, num_of_ls: int) -> None:
