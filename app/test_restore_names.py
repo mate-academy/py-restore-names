@@ -33,12 +33,12 @@ from app.restore_names import restore_names
             1
         ),
         (
-                [{
-                    "last_name": "Holy",
-                    "full_name": "Jack Holy",
-                }],
-                "Jack",
-                0
+            [{
+                "last_name": "Holy",
+                "full_name": "Jack Holy",
+            }],
+            "Jack",
+            0
         )
     ]
 )
