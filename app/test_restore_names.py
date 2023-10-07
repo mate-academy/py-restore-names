@@ -1,37 +1,36 @@
 import pytest
+from app.restore_names import restore_names
 
 
-@pytest.fixture()
-def users() -> bool:
-    return users == [
-        {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
-        {"last_name": "Adams", "full_name": "Mike Adams"},
+@pytest.mark.parametrize(
+    "inputs, output",
+    [
+        (
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy"
+                },
+                {
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams"
+                }
+            ],
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy"},
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams"
+                }
+            ]
+        )
     ]
-
-
-
-def test_restore_names(users) -> None:
-    for user in users:
-        if "first_name" not in user or user["first_name"] is None:
-            assert user["first_name"] == user["full_name"].split()[0]
-    #
-    #
-    #
-    # @pytest.mark.parametrize(
-    #     "cat_age, dog_age",
-    #     [
-    #         ("k", 12),
-    #         (12, "k"),
-    #         ("k", "k"),
-    #         ({"k"}, {"k"}),
-    #         (["k"], ["k"])
-    #     ]
-    # )
-    # def test_correct_types_value_get_human_age(
-    #         self,
-    #         cat_age: int,
-    #         dog_age: int
-    # ) -> None:
-    #
-    #     with pytest.raises(TypeError):
-    #         get_human_age(cat_age, dog_age)
+)
+def test_restore_names(inputs: list, output: list) -> None:
+    restore_names(inputs)
+    assert inputs == output
