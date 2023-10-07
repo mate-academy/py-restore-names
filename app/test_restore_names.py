@@ -17,7 +17,10 @@ from typing import List, Dict
         ["Jane", "Michael", "Emily"]
     ),
 ])
-def test_restore_names(users: List[Dict[str, str]], expected_names: List[str]):
+def test_restore_names(
+        users: List[Dict[str, str]],
+        expected_names: List[str]
+) -> None:
     restore_names(users)
 
     for user, expected_name in zip(users, expected_names):
@@ -32,7 +35,9 @@ def test_restore_names(users: List[Dict[str, str]], expected_names: List[str]):
      {"full_name": "Michael Brown", "first_name": "Michael"},
      {"full_name": "Emily Davis", "first_name": "Emily"}],
 ])
-def test_restore_names_no_changes(users: List[Dict[str, str]]):
+def test_restore_names_no_changes(
+        users: List[Dict[str, str]]
+) -> None:
     original_users = users.copy()
     restore_names(users)
 
