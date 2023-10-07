@@ -1,7 +1,5 @@
 from typing import List
-
 import pytest
-
 from app import restore_names
 
 
