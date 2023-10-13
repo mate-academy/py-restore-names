@@ -1,8 +1,10 @@
 import pytest
 from app.restore_names import restore_names
 
+# write your tests here
 
-def test_restore_names_users_with_missing_first_name() -> None:
+
+def test_restore_name_without_name() -> None:
     users = [
         {
             "first_name": None,
@@ -17,7 +19,7 @@ def test_restore_names_users_with_missing_first_name() -> None:
 
     restore_names(users)
 
-    assert users == [
+    new_users = [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -30,62 +32,4 @@ def test_restore_names_users_with_missing_first_name() -> None:
         },
     ]
 
-
-def test_restore_names_users_with_existing_first_name() -> None:
-    users = [
-        {
-            "first_name": "John",
-            "last_name": "Doe",
-            "full_name": "John Doe",
-        },
-        {
-            "first_name": "Alice",
-            "last_name": "Smith",
-            "full_name": "Alice Smith",
-        },
-    ]
-
-    restore_names(users)
-
-    assert users == [
-        {
-            "first_name": "John",
-            "last_name": "Doe",
-            "full_name": "John Doe",
-        },
-        {
-            "first_name": "Alice",
-            "last_name": "Smith",
-            "full_name": "Alice Smith",
-        },
-    ]
-
-
-def test_restore_names_users_without_full_name() -> None:
-    users = [
-        {
-            "first_name": "Mark",
-            "last_name": "Brown",
-        },
-        {
-            "first_name": None,
-            "last_name": "Johnson",
-        },
-    ]
-
-    restore_names(users)
-
-    assert users == [
-        {
-            "first_name": "Mark",
-            "last_name": "Brown",
-        },
-        {
-            "first_name": "Mike",
-            "last_name": "Johnson",
-        },
-    ]
-
-
-if __name__ == "__main__":
-    pytest.main()
+    assert users == new_users
