@@ -55,6 +55,9 @@ from app.restore_names import restore_names
         ]
     ),
 ])
-def test_restore_names_with_parameterization(input_users, expected_users):
+def test_restore_names_with_parameterization(
+        input_users: list,
+        expected_users: list
+) -> None:
     restore_names(input_users)
     assert input_users == expected_users
