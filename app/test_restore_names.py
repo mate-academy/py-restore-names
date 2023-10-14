@@ -35,4 +35,4 @@ def test_restore_names(users: list[dict],
                        expected_result: list[dict]
                        ) -> None:
     restore_names(users)
-    return users == expected_result
+    assert users == expected_result
