@@ -28,7 +28,9 @@ from app.restore_names import restore_names
                     "full_name": "Mike Adams"
                 }
             ]
-        )])
+        )
+    ]
+)
 def test_restore_names(users: list[dict],
                        expected_result: list[dict]
                        ) -> None:
