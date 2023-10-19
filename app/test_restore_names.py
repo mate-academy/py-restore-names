@@ -37,5 +37,16 @@ def test_restore_names(users: list[dict], expected: list[dict]) -> None:
     assert users == expected
 
 
-def test_return_none(users: list) -> None:
+def test_return_none() -> None:
+    users = [
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy"
+        },
+        {
+            "last_name": "Adams",
+            "full_name": "Mike Adams"
+        }
+    ]
     assert restore_names(users) is None
