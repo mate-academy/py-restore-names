@@ -86,4 +86,4 @@ class TestDictUsers(TestCase):
 
     def test_type_restore_names(self) -> None:
         with self.assertRaises(TypeError):
-            restore_names([{2: "some"}])
+            restore_names([{"giucs": "some"}])
