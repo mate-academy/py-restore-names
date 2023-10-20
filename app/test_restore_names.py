@@ -35,7 +35,8 @@ from app.restore_names import restore_names
 
 
 )
-def test_restore_names(user: list[dict], expected_user: list[dict]):
+def test_restore_names(user: list[dict],
+                       expected_user: list[dict]) -> None:
     restore_names(user)
     assert user == expected_user
 
@@ -48,42 +49,6 @@ def test_restore_names(user: list[dict], expected_user: list[dict]):
         [{"some": 34}]
     ]
 )
-def test_type_restore_names(user: list[dict]):
+def test_type_restore_names(user: list[dict]) -> None:
     with pytest.raises(KeyError):
         restore_names(user)
-
-# from unittest import TestCase
-# from app.restore_names import restore_names
-#
-#
-# class TestDictUsers(TestCase):
-#
-#     def setUp(self) -> None:
-#         self.user = ([
-#             {
-#                 "first_name": None,
-#                 "last_name": "Holy",
-#                 "full_name": "Jack Holy",
-#             }
-#         ])
-#         restore_names(self.user)
-#         print(self.user)
-#
-#     def test_chek_first_name(self) -> None:
-#         user = self.user[0]
-#         self.assertEqual(user["first_name"], "Jack")
-#
-#     def test_move_chek_first_name(self) -> None:
-#         user = self.user[0]
-#         user["first_name"] = "Denys"
-#         self.assertEqual(user["first_name"], "Denys")
-#
-#     def test_check_keys(self) -> None:
-#         user = self.user[0]
-#         self.assertEqual(user["first_name"], "Jack")
-#         self.assertEqual(user["last_name"], "Holy")
-#         self.assertEqual(user["full_name"], "Jack Holy")
-#
-#     def test_type_restore_names(self) -> None:
-#         with self.assertRaises(KeyError):
-#             restore_names([{"giucs": "some"}])
