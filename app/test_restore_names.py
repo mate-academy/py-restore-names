@@ -6,11 +6,12 @@ from app.restore_names import restore_names
     "input_dict,expected_dict",
     [
         pytest.param(
-            [{
-                "first_name": None,
-                "last_name": "Holy",
-                "full_name": "Jack Holy",
-            },
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
                 {
                     "last_name": "Adams",
                     "full_name": "Mike Adams",
@@ -31,11 +32,12 @@ from app.restore_names import restore_names
             id="should restore correctly"
         ),
         pytest.param(
-            [{
-                "first_name": "Jack",
-                "last_name": "Holy",
-                "full_name": "Jack Holy",
-            },
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
                 {
                     "first_name": "Mike",
                     "last_name": "Adams",
@@ -75,6 +77,9 @@ from app.restore_names import restore_names
 
     ]
 )
-def test_restore_names(input_dict, expected_dict):
+def test_restore_names(
+        input_dict: list[dict],
+        expected_dict: list[dict]
+) -> None:
     restore_names(input_dict)
     assert input_dict == expected_dict
