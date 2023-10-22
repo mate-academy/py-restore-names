@@ -20,7 +20,7 @@ class TestRestoreNames:
         ]
 
     @pytest.fixture()
-    def users_with_no_firstname(self) -> list:
+    def users_with_no_first_name(self) -> list:
         return [
             {
                 "last_name": "Holy",
@@ -50,12 +50,12 @@ class TestRestoreNames:
             },
         ]
 
-    def test_users_with_no_firstname(
+    def test_users_with_no_first_name(
             self,
-            users_with_no_firstname: list[dict]
+            users_with_no_first_name: list[dict]
     ) -> None:
-        restore_names(users_with_no_firstname)
-        assert users_with_no_firstname == [
+        restore_names(users_with_no_first_name)
+        assert users_with_no_first_name == [
             {
                 "first_name": "Jack",
                 "last_name": "Holy",
