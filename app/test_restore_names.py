@@ -37,4 +37,5 @@ def test_restore_names(
         initial_users: List[dict],
         complite_users: List[dict]
 ) -> None:
-    assert restore_names(initial_users) == complite_users
+    restore_names(initial_users)
+    assert initial_users == complite_users
