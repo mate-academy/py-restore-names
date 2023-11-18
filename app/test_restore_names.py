@@ -2,6 +2,7 @@ import pytest
 from app.restore_names import restore_names
 from typing import List
 
+
 @pytest.mark.parametrize(
     "initial_users, complite_users",
     [
