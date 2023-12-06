@@ -49,7 +49,8 @@ from app.restore_names import restore_names
 )
 def test_restore_names(users: list[dict],
                        result: list[dict]) -> None:
+    restore_names(users)
     assert (
-            restore_names(users) == result
+            users == result
     ), (f"Function restore_names should change {users} "
         f"into {result}, but it isn't")
