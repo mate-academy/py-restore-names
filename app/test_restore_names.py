@@ -2,7 +2,7 @@ import pytest
 from app.restore_names import restore_names
 
 
-def test_restore_names():
+def test_restore_names() -> None:
     # Test case with missing or None first_name
     users = [
         {
@@ -55,6 +55,7 @@ def test_restore_names():
             "full_name": "Bob Johnson",
         },
     ]
+
 
 if __name__ == "__main__":
     pytest.main()
