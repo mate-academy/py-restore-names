@@ -24,6 +24,6 @@ from app.restore_names import restore_names
     )
 )
 def test_restore_names(users: list[dict], result: list[dict]) -> None:
-    users_temp = [users]
+    users_temp = users
     restore_names(users_temp)
-    assert users_temp == [result]
+    assert users_temp == result
