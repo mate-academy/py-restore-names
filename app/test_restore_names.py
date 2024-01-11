@@ -45,8 +45,7 @@ def test_restore_names_with_existing_first_name(
 ) -> None:
     users, expected_result = users_with_missing_first_name
     users[0]["first_name"] = "Jack"
-    users[1]["first_name"] = ("Mike"
-                              "")
+    users[1]["first_name"] = "Mike"
     restore_names(users)
 
     assert users == expected_result
