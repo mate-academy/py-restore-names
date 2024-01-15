@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def users_data_template_with_none_value() -> list:
+def users_data_with_none_value() -> list:
     return [
         {
             "first_name": None,
@@ -14,7 +14,7 @@ def users_data_template_with_none_value() -> list:
 
 
 @pytest.fixture()
-def users_data_template_with_no_key() -> list:
+def users_data_with_no_key() -> list:
     return [
         {
             "last_name": "Adams",
