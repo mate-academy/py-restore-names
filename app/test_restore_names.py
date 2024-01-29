@@ -1,4 +1,5 @@
 import pytest
+
 from app.restore_names import restore_names
 
 
@@ -11,18 +12,24 @@ def user_from_database() -> dict:
     }
 
 
-def test_restore_names_without_first_name_key(user_from_database) -> None:
+def test_restore_names_without_first_name_key(
+        user_from_database: dict
+) -> None:
     del user_from_database["first_name"]
     restore_names([user_from_database])
     assert user_from_database["first_name"] == "Mike"
 
 
-def test_restore_names_when_first_name_key_is_none(user_from_database) -> None:
+def test_restore_names_when_first_name_key_is_none(
+        user_from_database: dict
+) -> None:
     user_from_database["first_name"] = None
     restore_names([user_from_database])
     assert user_from_database["first_name"] == "Mike"
 
 
-def test_restore_names_when_first_name_key_is_correct(user_from_database) -> None:
+def test_restore_names_when_first_name_key_is_correct(
+        user_from_database: dict
+) -> None:
     restore_names([user_from_database])
     assert user_from_database["first_name"] == "Mike"
