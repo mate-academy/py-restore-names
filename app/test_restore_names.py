@@ -30,7 +30,7 @@ from app.restore_names import restore_names
         ])
     ]
 )
-def test__(person_data: list) -> None:
+def test_for_restore_name(person_data: list) -> None:
     restore_names(person_data)
     expected_result = [
         {
