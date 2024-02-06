@@ -30,7 +30,7 @@ from app.restore_names import restore_names
                 },
             ]
         ),
-        ([], [])
+        (None, None)
     ]
 )
 def test_restore_names(
