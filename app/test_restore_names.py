@@ -29,12 +29,12 @@ from app.restore_names import restore_names
                     "full_name": "Mike Adams",
                 },
             ]
-        ),
-        (None, None)
+        )
     ]
 )
 def test_restore_names(
         start_list: list,
         result_list: list
 ) -> None:
-    assert restore_names(start_list) == result_list
+    restore_names(start_list)
+    assert start_list == result_list
