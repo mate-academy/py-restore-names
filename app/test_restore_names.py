@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.mark.parametrize(
-    ("start_list", "result_list"),
+    "start_list, result_list",
     [
         (
             [
