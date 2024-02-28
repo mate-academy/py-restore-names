@@ -12,7 +12,7 @@ def users() -> list:
     ]
 
 
-def test_restore_names(users) -> None:
+def test_restore_names(users: list) -> None:
     restore_names(users)
 
     assert users[0]["first_name"] == "Jack"
@@ -21,8 +21,7 @@ def test_restore_names(users) -> None:
     assert users[3]["first_name"] == "Mike"
 
 
-def test_restore_names_no_change(users) -> None:
-    # Test if the function doesn't change the first_name if it's already correct
+def test_restore_names_no_change(users: list) -> None:
     restore_names(users)
 
     assert users[0]["first_name"] == "Jack"
