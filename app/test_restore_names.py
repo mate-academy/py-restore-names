@@ -20,6 +20,6 @@ from app.restore_names import restore_names
         )
     ]
 )
-def test_restore_names(users, result):
+def test_restore_names(users: list, result: list):
     restore_names(users)
     assert users == result
