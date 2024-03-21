@@ -18,7 +18,7 @@ def users_template() -> list:
     ]
 
 
-def test_restore_names(users_template: list) -> None:
+def test_restore_names(users_template: list[dict]) -> None:
     expected_users = [
         {
             "first_name": "Jack",
