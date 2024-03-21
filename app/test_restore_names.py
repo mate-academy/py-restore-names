@@ -8,11 +8,11 @@ class TestRestoreNames:
         [
             (
                 [{"first_name": None, "full_name": "Jack Holy"}],
-                [{"first_name": "Jack", "full_name": "Jack Holy"}],
+                [{"first_name": "Jack", "full_name": "Jack Holy"}]
             ),
             (
                 [{"full_name": "Mike Adams"}],
-                [{"first_name": "Mike", "full_name": "Mike Adams"}],
+                [{"first_name": "Mike", "full_name": "Mike Adams"}]
             ),
             (
                 [{"first_name": "Mike", "full_name": "Mike Adams"}],
@@ -26,6 +26,8 @@ class TestRestoreNames:
             "First name shouldn`t be changed"
         ]
     )
-    def test_restore_user(self, user: list[dict], expected_user: list[dict]) -> None:
+    def test_restore_user(self,
+                          user: list[dict],
+                          expected_user: list[dict]) -> None:
         restore_names(user)
         assert user == expected_user
