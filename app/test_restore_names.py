@@ -43,7 +43,7 @@ def test_no_last_name() -> None:
 
 
 def test_single_name_full_name() -> None:
-    users = [{"first_name": None, "last_name": "Sy", "full_name": "Max"}]
-    expected = [{"first_name": "Max", "last_name": "Sy", "full_name": "Max"}]
+    users = [{"first_name": None, "last_name": "S1", "full_name": "Max"}]
+    expected = [{"first_name": "Max", "last_name": "S1", "full_name": "Max"}]
     restore_names(users)
     assert users == expected
