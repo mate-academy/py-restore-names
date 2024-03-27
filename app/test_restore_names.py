@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def user_template():
+def user_template() -> list:
     users = [
         {
             "first_name": None,
@@ -30,7 +30,6 @@ def test_user_first_name_equal_none(user_template: pytest.fixture) -> None:
 def test_user_first_name_doesnt_exist(user_template: pytest.fixture) -> None:
     restore_names(user_template)
     assert user_template[1] == {
-            "first_name": "Mike",
-            "last_name": "Adams",
-            "full_name": "Mike Adams",
-        }
+        "first_name": "Mike",
+        "last_name": "Adams",
+        "full_name": "Mike Adams", }
