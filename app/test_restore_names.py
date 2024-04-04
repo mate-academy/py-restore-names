@@ -1,3 +1,4 @@
+import pytest
 from app.restore_names import restore_names
 
 
@@ -11,8 +12,6 @@ def test_name_is_none() -> None:
 
 
 def test_name_is_missing() -> None:
-    users = [{
-        "full_name": "Mike Adams",
-    }]
+    users = [{"full_name": "Mike Adams"}]
     restore_names(users)
     assert users[0]["first_name"]
