@@ -13,7 +13,7 @@ from app.restore_names import restore_names
         ([{
             "last_name": "Adams",
             "full_name": "Mike Adams",
-          }], "Mike"),
+        }], "Mike"),
         ([{
             "first_name": "Jack",
             "last_name": "Holy",
@@ -26,6 +26,6 @@ from app.restore_names import restore_names
         "If first name is present"
     ]
 )
-def test_restore_name(user, expected_name):
+def test_restore_name(user: list, expected_name: str) -> None:
     restore_names(users=user)
     assert user[0]["first_name"] == expected_name
