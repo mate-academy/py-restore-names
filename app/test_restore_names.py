@@ -1,25 +1,24 @@
-import pytest
 from app.restore_names import restore_names
 
 
 users = [
-  {
-    "first_name": None,
-    "last_name": "Holy",
-    "full_name": "Jack Holy",
-  },
-  {
-    "last_name": "Adams",
-    "full_name": "Mike Adams",
-  },
+    {
+        "first_name": None,
+        "last_name": "Holy",
+        "full_name": "Jack Holy",
+    },
+    {
+        "last_name": "Adams",
+        "full_name": "Mike Adams",
+    },
 ]
 
 
-def test_empty_first_name():
+def test_empty_first_name() -> None:
     restore_names(users)
     assert users[0]["first_name"] == "Jack"
 
 
-def test_first_name_none():
+def test_first_name_none() -> None:
     restore_names(users)
     assert users[1]["first_name"] == "Mike"
