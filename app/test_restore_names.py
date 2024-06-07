@@ -33,4 +33,3 @@ from app.restore_names import restore_names
 def test_restore_names(users: list, expected_results: list) -> None:
     restore_names(users)
     assert users == expected_results
-
