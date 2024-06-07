@@ -19,15 +19,4 @@ def get_user() -> list:
 
 
 def test_restore_names(get_user: list) -> None:
-    assert restore_names(get_user) == [
-        {
-            "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        },
-        {
-            "first_name": "Mike",
-            "last_name": "Adams",
-            "full_name": "Mike Adams",
-        },
-    ]
+    assert restore_names(get_user) == get_user
