@@ -28,7 +28,7 @@ def user_with_all_data() -> list:
         {
             "first_name": "Mike",
             "last_name": "Adams",
-            "full_name": "Mike Adams",
+            "full_nme": "Mike Adams",
         },
     ]
 
