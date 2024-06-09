@@ -21,14 +21,14 @@ def user_without_first_name() -> list:
 def user_with_all_data() -> list:
     return [
         {
-            "first_name": "Anna",
-            "last_name": "Smith",
-            "full_name": "Anna Smith",
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
         },
         {
-            "first_name": "John",
-            "last_name": "Doe",
-            "full_name": "John Doe",
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
         },
     ]
 
