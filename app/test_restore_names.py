@@ -40,7 +40,6 @@ def test_restore_names_missing_names() -> None:
             "first_name": "John",
             "last_name": "Doe",
             "full_name": "John Doe"
-
         }
     ]
 
@@ -75,37 +74,13 @@ def test_restore_names_no_change() -> None:
 
 def test_restore_names_duplicate_full_name() -> None:
     users = [
-        {
-            "first_name": None,
-            "last_name": "Doe",
-            "full_name": "John Doe"
-        },
-        {
-            "first_name": None,
-            "last_name": "Doe",
-            "full_name": "John Doe"
-        },
-        {
-            "first_name": None,
-            "last_name": "Doe",
-            "full_name": "Jane Doe"
-        }
+        {"first_name": None, "last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": None, "last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": None, "last_name": "Doe", "full_name": "Jane Doe"}
     ]
     restore_names(users)
     assert users == [
-        {
-            "first_name": "John",
-            "last_name": "Doe",
-            "full_name": "John Doe"
-        },
-        {
-            "first_name": None,
-            "last_name": "Doe",
-            "full_name": "John Doe"
-        },
-        {
-            "first_name": "Jane",
-            "last_name": "Doe",
-            "full_name": "Jane Doe"
-        }
+        {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": "Jane", "last_name": "Doe", "full_name": "Jane Doe"}
     ]
