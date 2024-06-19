@@ -1,6 +1,7 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.mark.parametrize(
     "test_data, expected_result",
     [
@@ -37,6 +38,7 @@ from app.restore_names import restore_names
         ),
     ]
 )
-def test_restore_names(test_data: list[dict], expected_result: list[dict]):
+def test_restore_names(test_data: list[dict],
+                       expected_result: list[dict]) -> None:
     restore_names(test_data)
     assert test_data == expected_result
