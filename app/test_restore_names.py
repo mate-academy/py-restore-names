@@ -1,4 +1,3 @@
-import pytest
 from app.restore_names import restore_names
 
 
@@ -88,4 +87,3 @@ def test_restore_names_with_existing() -> None:
             "full_name": "Jane Smith",
         },
     ]
-
