@@ -1,4 +1,8 @@
+from typing import Dict, List
+
 import pytest
+from _pytest.fixtures import SubRequest
+
 from app.restore_names import restore_names
 
 
@@ -37,11 +41,11 @@ from app.restore_names import restore_names
         },
     ]
 ])
-def data_template(request):
+def data_template(request: SubRequest) -> list:
     return request.param
 
 
-def test_restore_names(data_template):
+def test_restore_names(data_template: List[Dict]) -> None:
     restore_names(data_template)
     assert data_template == [
         {
