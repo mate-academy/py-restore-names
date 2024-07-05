@@ -1,6 +1,7 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.mark.parametrize(
     "user,expected_value",
     [
@@ -22,23 +23,21 @@ from app.restore_names import restore_names
 
             ],
         ),
-
         (
-                [
-                    {
-                        "last_name": "Adams",
-                        "full_name": "Mike Adams",
-                    },
-                ],
+            [
+                {
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ],
 
-                [
-                    {
-                        "first_name": "Mike",
-                        "last_name": "Adams",
-                        "full_name": "Mike Adams",
-                    },
-
-                ],
+            [
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ],
         ),
     ]
 )
