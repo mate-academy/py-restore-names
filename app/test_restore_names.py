@@ -12,10 +12,10 @@ from app.restore_names import restore_names
             }
         ], ["Jack"]),
         ([
-             {
-                 "last_name": "Adams",
-                 "full_name": "Mike Adams",
-             },
+            {
+                "last_name": "Adams",
+                "full_name": "Mike Adams",
+            },
         ], ["Mike"]),
         ([
             {
@@ -24,8 +24,8 @@ from app.restore_names import restore_names
                 "full_name": "Jack Holy",
             },
             {
-                 "last_name": "Adams",
-                 "full_name": "Mike Adams",
+                "last_name": "Adams",
+                "full_name": "Mike Adams",
             },
         ], ["Jack", "Mike"]),
     ]
