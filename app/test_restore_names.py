@@ -62,18 +62,18 @@ def correct_users() -> list:
     ]
 
 
-def test_correct_values(users, correct_users):
+def test_correct_values(users: list, correct_users: list) -> None:
     restore_names(users)
     assert users == correct_users
 
 
-def test_no_change_if_first_name_exists(correct_users):
+def test_no_change_if_first_name_exists(correct_users: list) -> None:
     expected_users = correct_users[:]
     restore_names(correct_users)
     assert correct_users == expected_users
 
 
-def test_empty_list():
+def test_empty_list() -> None:
     users = []
     expected_users = []
 
