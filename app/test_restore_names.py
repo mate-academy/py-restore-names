@@ -154,6 +154,9 @@ from typing import List
         ),
     ]
 )
-def test_possible_options(users_data: List[dict], expected_data: List[dict]) -> None:
+def test_possible_options(
+        users_data: List[dict],
+        expected_data: List[dict]
+) -> None:
     restore_names(users_data)
     assert users_data == expected_data
