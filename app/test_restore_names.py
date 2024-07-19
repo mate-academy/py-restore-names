@@ -16,6 +16,6 @@ def test_restore_names(users: list[dict]) -> None:
     restore_names(users)
     assert users == [
         {"full_name": "John Doe", "first_name": "John", "last_name": "Doe"},
-        {"full_name": "Jane Doe", "first_name": "Jane", "last_name": "Doe"},
+        {"full_name": "Bob Doe", "first_name": "Bob", "last_name": "Doe"},
         {"full_name": "Jack Doe", "first_name": "Jack", "last_name": "Doe"},
     ]
