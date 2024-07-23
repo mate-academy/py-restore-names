@@ -1,8 +1,7 @@
-import pytest
 from app.restore_names import restore_names
 
 
-def test_restores_all_names():
+def test_restores_all_names() -> None:
     users = [
         {
             "full_name": "John Smith",
