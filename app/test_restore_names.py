@@ -134,3 +134,26 @@ def test_restore_names_empty_list() -> None:
 
     restore_names(users)
     assert users == expected
+
+
+def test_if_full_name_is_single() -> None:
+    users = [
+        {
+            "first_name": None,
+            "last_name": "",
+            "full_name": "Eminem",
+        },
+    ]
+
+    restore_names(users)
+
+    expected = [
+        {
+            "first_name": "Eminem",
+            "last_name": "",
+            "full_name": "Eminem",
+        },
+    ]
+
+    restore_names(users)
+    assert users == expected
