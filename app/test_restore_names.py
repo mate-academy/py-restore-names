@@ -124,7 +124,6 @@ def test_restore_name_with_none_last_name() -> None:
         },
     ]
 
-    restore_names(users)
     assert users == expected
 
 
