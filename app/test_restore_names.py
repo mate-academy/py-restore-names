@@ -2,7 +2,7 @@
 from app.restore_names import restore_names
 
 
-def test_restore_name_with_none_first_name():
+def test_restore_name_with_none_first_name() -> None:
     users = [
         {
             "first_name": None,
