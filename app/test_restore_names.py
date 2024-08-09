@@ -1,4 +1,4 @@
-import pytest
+# import pytest
 from app.restore_names import restore_names
 
 
@@ -34,7 +34,7 @@ def test_restore_name_with_none_first_name():
     assert users == expected
 
 
-def test_restore_name_with_exciting_first_name():
+def test_restore_name_with_exciting_first_name() -> None:
     users = [
         {
             "first_name": "Jack",
@@ -66,7 +66,7 @@ def test_restore_name_with_exciting_first_name():
     assert users == expected
 
 
-def test_restore_name_with_no_first_name():
+def test_restore_name_with_no_first_name() -> None:
     users = [
         {
             "last_name": "Holy",
@@ -96,7 +96,8 @@ def test_restore_name_with_no_first_name():
     restore_names(users)
     assert users == expected
 
-def test_restore_name_with_none_last_name():
+
+def test_restore_name_with_none_last_name() -> None:
     users = [
         {
             "first_name": "Jack",
@@ -125,6 +126,7 @@ def test_restore_name_with_none_last_name():
 
     restore_names(users)
     assert users == expected
+
 
 def test_restore_names_empty_list() -> None:
     users = []
