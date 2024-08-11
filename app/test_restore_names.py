@@ -3,7 +3,7 @@ import pytest
 from app.restore_names import restore_names
 
 
-def test_restore_names_with_missing_first_name():
+def test_restore_names_with_missing_first_name() -> None:
     users = [
         {"full_name": "John Doe", "first_name": None},
         {"full_name": "Jane Smith"},
@@ -17,7 +17,7 @@ def test_restore_names_with_missing_first_name():
     assert users[2]["first_name"] == "Alice"
 
 
-def test_restore_names_with_no_full_name():
+def test_restore_names_with_no_full_name() -> None:
     users = [
         {"first_name": None},
     ]
@@ -26,7 +26,7 @@ def test_restore_names_with_no_full_name():
         restore_names(users)
 
 
-def test_restore_names_with_empty_list():
+def test_restore_names_with_empty_list() -> None:
     users = []
 
     restore_names(users)
@@ -34,7 +34,7 @@ def test_restore_names_with_empty_list():
     assert users == []
 
 
-def test_restore_names_with_partial_names():
+def test_restore_names_with_partial_names() -> None:
     users = [
         {"full_name": "John"},
         {"full_name": "Jane", "first_name": None},
