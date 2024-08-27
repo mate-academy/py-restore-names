@@ -2,7 +2,7 @@ import pytest
 from app.restore_names import restore_names
 
 
-def test_restore_first_name_when_none():
+def test_restore_first_name_when_none() -> None:
     users = [
         {
             "first_name": None,
@@ -30,7 +30,7 @@ def test_restore_first_name_when_none():
     ]
 
 
-def test_restore_first_name_when_missing():
+def test_restore_first_name_when_missing() -> None:
     users = [
         {
             "last_name": "AdAMS",
@@ -56,7 +56,7 @@ def test_restore_first_name_when_missing():
     ]
 
 
-def test_do_not_change_first_name_if_exists():
+def test_do_not_change_first_name_if_exists() -> None:
     users = [
         {
             "first_name": "Tom",
@@ -84,7 +84,7 @@ def test_do_not_change_first_name_if_exists():
     ]
 
 
-def test_handle_full_name_with_more_than_two_words():
+def test_handle_full_name_with_more_than_two_words() -> None:
     users = [
         {
             "first_name": None,
@@ -102,7 +102,7 @@ def test_handle_full_name_with_more_than_two_words():
     ]
 
 
-def test_handle_missing_full_name():
+def test_handle_missing_full_name() -> None:
     users = [
         {"first_name": None, "last_name": "Unknown", "full_name": ""},
     ]
