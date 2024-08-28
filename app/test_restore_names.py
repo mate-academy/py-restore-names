@@ -32,6 +32,7 @@ from app.restore_names import restore_names
         )
     ]
 )
-def test_should_correct_user_without_firs_name(incorrect_users, expected) -> None:
+def test_should_correct_user_without_firs_name(incorrect_users: list,
+                                               expected: list) -> None:
     restore_names(incorrect_users)
     assert incorrect_users == expected
