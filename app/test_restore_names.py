@@ -4,7 +4,7 @@ from app.restore_names import restore_names
 
 @pytest.mark.parametrize(
     "users,expected_result",
-[
+    [
         pytest.param(
             [
                 {
@@ -57,7 +57,9 @@ from app.restore_names import restore_names
             id="result should be the same as initial list")
     ]
 )
-def test_restore_name_function(users: list[dict], expected_result: list[dict]) -> None:
-    users_restored = users
+def test_restore_name_function(
+        users: list[dict],
+        expected_result: list[dict]
+) -> None:
     restore_names(users)
-    assert users_restored == expected_result
+    assert users == expected_result
