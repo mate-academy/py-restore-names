@@ -1,35 +1,63 @@
-from unittest import TestCase
+import pytest
 from app.restore_names import restore_names
 
 
-class TestRestoreNameFunc(TestCase):
-    def setUp(self) -> None:
-        self.user = [
-            {
-                "first_name": None,
-                "last_name": "Holy",
-                "full_name": "Jack Holy",
-            }
-        ]
-
-    def tearDown(self) -> None:
-        delattr(self, "user")
-
-    def test_should_set_first_name_value_when_first_name_is_none(self) -> None:
-        restore_names(self.user)
-        assert self.user == {
-            "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        }
-
-    def test_should_set_first_name_key_and_value_when_first_name_not_exist(
-            self
-    ) -> None:
-        del self.user[0]["first_name"]
-        restore_names(self.user)
-        assert self.user == {
-            "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
-        }
+@pytest.mark.parametrize(
+    "users,expected_result",
+[
+        pytest.param(
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ],
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ],
+            id="First name for Holly should be changed to Jack"),
+        pytest.param(
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ],
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ],
+            id="result should be the same as initial list")
+    ]
+)
+def test_restore_name_function(users: list[dict], expected_result: list[dict]) -> None:
+    users_restored = users
+    restore_names(users)
+    assert users_restored == expected_result
