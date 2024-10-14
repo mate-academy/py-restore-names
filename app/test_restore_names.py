@@ -29,7 +29,8 @@ from app.restore_names import restore_names
                     "full_name": "Mike Adams",
                 },
             ],
-            id="First name for Holly should be changed to Jack"),
+            id="First name for Holly should be changed "
+               "if first_name is None or not exist"),
         pytest.param(
             [
                 {
@@ -54,7 +55,7 @@ from app.restore_names import restore_names
                     "full_name": "Mike Adams",
                 },
             ],
-            id="result should be the same as initial list")
+            id="result should be the same if first_name exist")
     ]
 )
 def test_restore_name_function(
