@@ -10,7 +10,7 @@ def users_data() -> Any:
              "full_name": "Jack Holy",
              },
             {"last_name": "Adams",
-             "full_name": "Mike Adams", },]
+             "full_name": "Mike Adams", }, ]
 
 
 def test_restored_name(users_data: Any) -> Any:
