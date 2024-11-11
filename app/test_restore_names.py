@@ -4,12 +4,23 @@ from app.restore_names import restore_names
 
 class TestRestoreNames(unittest.TestCase):
 
-    def test_restore_name(self, users: list) -> None:
+    def test_restore_name(self) -> None:
+        users = [
+            {
+                "first_name": None,
+                "last_name": "Holy",
+                "full_name": "Jack Holy",
+            },
+            {
+                "last_name": "Adams",
+                "full_name": "Mike Adams",
+            }
+        ]
         restore_names(users)
-        self.assertEqual(users[0]["first_name"], "Jack")
-        self.assertEqual(users[1]["first_name"], "Mike")
-
-    def test_restore_name_empty(self, users: list) -> None:
-        restore_names(users)
-        self.assertEqual(users[0]["first_name"], "")
-        self.assertEqual(users[1]["first_name"], "None")
+        expected_users = [{"first_name": "Jack",
+                           "last_name": "Holy",
+                           "full_name": "Jack Holy"},
+                          {"first_name": "Mike",
+                           "last_name": "Adams",
+                           "full_name": "Mike Adams"}]
+        self.assertEqual(users, expected_users)
