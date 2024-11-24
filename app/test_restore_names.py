@@ -52,3 +52,4 @@ def test_single_word_full_name() -> None:
     expected = [
         {"first_name": "Sam", "last_name": "", "full_name": "Sam"}
     ]
+    assert users == expected
