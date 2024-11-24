@@ -19,6 +19,7 @@ def test_restore_names_with_missing_first_name() -> None:
     ]
     assert users == expected
 
+
 def test_no_modification_for_valid_first_name() -> None:
     users = [
         {"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
@@ -39,10 +40,12 @@ def test_no_modification_for_valid_first_name() -> None:
     ]
     assert users == expected
 
+
 def test_empty_list() -> None:
     users = []
     restore_names(users)
     assert users == []
+
 
 def test_single_word_full_name() -> None:
     users = [
