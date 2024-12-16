@@ -14,7 +14,7 @@ from app.restore_names import restore_names
                 },
                 {
                     "last_name": "Adams",
-                    "full_name":"Mike Adams"
+                    "full_name": "Mike Adams"
                 },
             ],
             [
@@ -32,7 +32,9 @@ from app.restore_names import restore_names
         ),
     ]
 )
-def test_restore_names(users, expected_result):
+def test_restore_names(
+        users: list[dict[str, str | None] | dict[str, str]],
+        expected_result: list[dict[str, str] | dict[str, str]]
+) -> None:
     restore_names(users)
     assert users == expected_result
-
