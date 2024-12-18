@@ -1,8 +1,9 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.fixture()
-def user_template():
+def user_template() -> list:
     users = [
         {
             "first_name": None,
@@ -17,7 +18,7 @@ def user_template():
     return users
 
 
-def test_restore_names(user_template):
+def test_restore_names(user_template: list) -> None:
     expected = [
         {
             "first_name": "Jack",
