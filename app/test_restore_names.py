@@ -1,3 +1,5 @@
+from typing import List
+
 import pytest
 from app.restore_names import restore_names
 
@@ -17,9 +19,8 @@ def users_template() -> list[dict]:
     ]
 
 
-def test_restore_names(users_template) -> None:
+def test_restore_names(users_template: List[dict]) -> None:
     restore_names(users_template)
     user1, user2 = users_template
     assert user1["first_name"] == "Jack"
     assert user2["first_name"] == "Mike"
-
