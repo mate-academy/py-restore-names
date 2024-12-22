@@ -23,4 +23,4 @@ def users_template() -> list[dict]:
 def test_restore_names(users_template: List[dict]) -> None:
     restore_names(users_template)
     for user in users_template:
-       assert user["first_name"] == user["full_name"].split()[0]
+        assert user["first_name"] == user["full_name"].split()[0]
