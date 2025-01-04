@@ -2,7 +2,7 @@ import pytest
 from restore_names import restore_names
 
 
-def test_restore_names_with_none_first_name():
+def test_restore_names_with_none_first_name() -> None:
     users = [
         {
             "first_name": None,
@@ -32,7 +32,7 @@ def test_restore_names_with_none_first_name():
     ]
 
 
-def test_restore_names_without_first_name():
+def test_restore_names_without_first_name() -> None:
     users = [
         {
             "last_name": "Smith",
@@ -60,7 +60,7 @@ def test_restore_names_without_first_name():
     ]
 
 
-def test_no_change_if_first_name_exists():
+def test_no_change_if_first_name_exists() -> None:
     users = [
         {
             "first_name": "Alice",
