@@ -1,8 +1,7 @@
-import pytest
 from app.restore_names import restore_names
 
 
-def test_if_first_name_is_none_or_not_created():
+def test_if_first_name_is_none_or_not_created() -> None:
     users = [
         {
             "first_name": None,
