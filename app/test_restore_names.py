@@ -17,6 +17,8 @@ def users() -> list[dict]:
             "full_name": "Mike Adams",
         },
     ]
+
+
 def test_restore_names(users: Callable) -> None:
     restore_names(users)
     assert users == [
