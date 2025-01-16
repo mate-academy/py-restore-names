@@ -13,7 +13,6 @@ def test_restore_only_none_names() -> None:
     ]
 
 
-
 def test_restore_missing_first_name_key() -> None:
     users = [
         {"last_name": "Smith", "full_name": "John Smith"},
