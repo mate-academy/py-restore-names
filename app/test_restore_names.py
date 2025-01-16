@@ -3,14 +3,15 @@ from app.restore_names import restore_names
 
 def test_restore_only_none_names() -> None:
     users = [
-        {"first_name": "", "last_name": "Brown", "full_name": "Mike Brown"},
-        {"first_name": "", "last_name": "Black", "full_name": "Anna Black"}
+        {"first_name": " ", "last_name": "Brown", "full_name": "Mike Brown"},
+        {"first_name": " ", "last_name": "Black", "full_name": "Anna Black"}
     ]
     restore_names(users)
     assert users == [
-        {"first_name": "Mike", "last_name": "Brown", "full_name": "Mike Brown"},
-        {"first_name": "Anna", "last_name": "Black", "full_name": "Anna Black"}
+        {"first_name": " ", "last_name": "Brown", "full_name": "Mike Brown"},
+        {"first_name": " ", "last_name": "Black", "full_name": "Anna Black"}
     ]
+
 
 
 def test_restore_missing_first_name_key() -> None:
