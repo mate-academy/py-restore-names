@@ -1,5 +1,5 @@
-import pytest
 from app.restore_names import restore_names
+
 
 def test_correct_execution() -> None:
     users = [
