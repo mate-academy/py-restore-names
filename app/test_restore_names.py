@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def user_lost_template():
+def user_lost_template() -> list:
     return [
         {
             "first_name": None,
@@ -17,7 +17,7 @@ def user_lost_template():
     ]
 
 
-def test_if_disappear_first_name(user_lost_template):
+def test_if_disappear_first_name(user_lost_template: list) -> None:
     restore_names(user_lost_template)
     assert user_lost_template == [
         {
