@@ -1,10 +1,9 @@
-import pytest
 from app.restore_names import restore_names
 import unittest
 
 
 class TestRestoreNames(unittest.TestCase):
-    def test_restore_names(self):
+    def test_restore_names(self) -> None:
 
         users = [
             {"full_name": "John Doe", "first_name": None},
