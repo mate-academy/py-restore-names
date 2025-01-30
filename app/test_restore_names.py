@@ -37,7 +37,7 @@ def missing_full_name_users() -> List[Dict[str, Optional[str]]]:
     ]
 
 
-def test_restore_names_basic(sample_users) -> None:
+def test_restore_names_basic(sample_users: list) -> None:
     restore_names(sample_users)
     expected = [
         {"first_name": "Jack",
@@ -50,13 +50,13 @@ def test_restore_names_basic(sample_users) -> None:
     assert sample_users == expected
 
 
-def test_restore_names_no_change(unchanged_users) -> None:
+def test_restore_names_no_change(unchanged_users: list) -> None:
     original = unchanged_users.copy()
     restore_names(unchanged_users)
     assert unchanged_users == original
 
 
-def test_restore_names_missing_full_name(missing_full_name_users) -> None:
+def test_restore_names_missing_full_name(missing_full_name_users: list) -> None:
     restore_names(missing_full_name_users)
     expected = [
         {"first_name": "Unknown",
