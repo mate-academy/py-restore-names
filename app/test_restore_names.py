@@ -56,7 +56,8 @@ def test_restore_names_no_change(unchanged_users: list) -> None:
     assert unchanged_users == original
 
 
-def test_restore_names_missing_full_name(missing_full_name_users: list) -> None:
+def test_restore_names_missing_full_name(
+        missing_full_name_users: list) -> None:
     restore_names(missing_full_name_users)
     expected = [
         {"first_name": "Unknown",
