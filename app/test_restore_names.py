@@ -1,9 +1,11 @@
 import pytest
 
-def restore_names(users):
+
+def restore_names(users) -> None:
     for user in users:
         if not user.get("first_name"):
             user["first_name"] = user["full_name"].split()[0]
+
 
 @pytest.mark.parametrize("users, expected", [
     ([
@@ -58,6 +60,6 @@ def restore_names(users):
         }
     ])
 ])
-def test_restore_names(users, expected):
+def test_restore_names(users, expected) -> None:
     restore_names(users)
     assert users == expected
