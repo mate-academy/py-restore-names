@@ -3,7 +3,7 @@ import pytest
 
 def restore_names(users: list[dict]) -> None:
     for user in users:
-        if not user.get("first_name"):
+        if "first_name" not in user or user["first_name"] is None:
             user["first_name"] = user["full_name"].split()[0]
 
 
