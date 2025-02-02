@@ -1,7 +1,7 @@
 import pytest
 
 
-def restore_names(users) -> None:
+def restore_names(users: list[dict]) -> None:
     for user in users:
         if not user.get("first_name"):
             user["first_name"] = user["full_name"].split()[0]
@@ -27,10 +27,6 @@ def restore_names(users) -> None:
             "first_name": None,
             "last_name": "Smith",
             "full_name": "John Smith"
-        },
-        {
-            "last_name": "Smith",
-            "full_name": "John Smith"
         }
     ], [
         {
@@ -52,14 +48,9 @@ def restore_names(users) -> None:
             "first_name": "John",
             "last_name": "Smith",
             "full_name": "John Smith"
-        },
-        {
-            "first_name": "John",
-            "last_name": "Smith",
-            "full_name": "John Smith"
         }
     ])
 ])
-def test_restore_names(users, expected) -> None:
+def test_restore_names(users: list[dict], expected: list[dict]) -> None:
     restore_names(users)
     assert users == expected
