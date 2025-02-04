@@ -23,4 +23,5 @@ from app.restore_names import restore_names
     )
 )
 def test_restore_name(what_we_get: list[dict], expected: list[dict], ) -> None:
-    assert restore_names(what_we_get) == expected
+    restore_names(what_we_get)
+    assert what_we_get == expected
