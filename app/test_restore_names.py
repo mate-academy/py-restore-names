@@ -16,7 +16,9 @@ def test_restore_names() -> None:
     expected_users = [
         {"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
         {
-        "first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams"
         },
         {
             "first_name": "Alice",
