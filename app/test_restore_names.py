@@ -12,6 +12,8 @@ def test_restore_names() -> None:
         {"first_name": "Chris", "last_name": "Evans"},  # No full_name provided
         {"first_name": None, "last_name": "Lee",
          "full_name": ""},  # Empty full_name
+        {"last_name": "Taylor", "full_name":
+            "Sam Taylor"},  # Missing first_name key
     ]
 
     restore_names(users)
@@ -25,6 +27,8 @@ def test_restore_names() -> None:
         {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"},
         {"first_name": "Chris", "last_name": "Evans"},
         {"first_name": None, "last_name": "Lee", "full_name": ""},
+        {"first_name": "Sam", "last_name": "Taylor",
+         "full_name": "Sam Taylor"},
     ]
 
     assert users == expected
@@ -38,10 +42,15 @@ def test_restore_names_empty_list() -> None:
 
 def test_restore_names_no_full_name() -> None:
     users = [
-        {"first_name": None, "last_name": "Brown"}  # No full_name field
+        {"first_name": None, "last_name": "Brown"},  # No full_name field
+        {"first_name": None, "last_name": "Davis",
+         "full_name": " "}  # Empty full_name
     ]
     restore_names(users)
-    assert users == [{"first_name": None, "last_name": "Brown"}]
+    assert users == [
+        {"first_name": None, "last_name": "Brown"},
+        {"first_name": None, "last_name": "Davis", "full_name": " "}
+    ]
 
 
 if __name__ == "__main__":
