@@ -1,33 +1,35 @@
 from typing import List
-
 import pytest
-
-from app import restore_names
-
-
-def test_restore_only_missing_names(monkeypatch):
-    def restore_only_missing_names(users: List[dict]) -> None:
-        for user in users:
-            if "first_name" not in user:
-                user["first_name"] = user["full_name"].split()[0]
-
-    monkeypatch.setattr(restore_names, "restore_names", restore_only_missing_names)
-
-    test_result = pytest.main(["app/test_restore_names.py"])
-    assert (
-        test_result.value == 1
-    ), "Tests should check function with users whose first_name is equal to None"
+from app.restore_names import restore_names
 
 
-def test_restore_only_none_names(monkeypatch):
-    def restore_only_none_names(users: List[dict]) -> None:
-        for user in users:
-            if user["first_name"] is None:
-                user["first_name"] = user["full_name"].split()[0]
+def test_restore_only_missing_names():
+    users = [
+        {"last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": None, "last_name": "Smith", "full_name": "Alice Smith"},
+    ]
 
-    monkeypatch.setattr(restore_names, "restore_names", restore_only_none_names)
+    restore_names(users)
 
-    test_result = pytest.main(["app/test_restore_names.py"])
-    assert (
-        test_result.value == 1
-    ), "Tests should check function with users whose first_name is missing"
+    expected = [
+        {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": "Alice", "last_name": "Smith", "full_name": "Alice Smith"},
+    ]
+
+    assert users == expected, "The function should correctly restore missing first names"
+
+
+def test_restore_only_none_names():
+    users = [
+        {"first_name": None, "last_name": "Taylor", "full_name": "Emma Taylor"},
+        {"first_name": "", "last_name": "Brown", "full_name": "James Brown"},
+    ]
+
+    restore_names(users)
+
+    expected = [
+        {"first_name": "Emma", "last_name": "Taylor", "full_name": "Emma Taylor"},
+        {"first_name": "James", "last_name": "Brown", "full_name": "James Brown"},
+    ]
+
+    assert users == expected, "The function should correctly restore names when first_name is None or empty"
