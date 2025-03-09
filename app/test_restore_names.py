@@ -1,6 +1,5 @@
 import pytest
 from app.restore_names import restore_names
-from typing import Any
 
 # flake8: noqa: ANN001
 @pytest.fixture()
