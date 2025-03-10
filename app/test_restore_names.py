@@ -1,31 +1,55 @@
-from app.restore_names import (
-    restore_names
-)  # Импортируем функцию из модуля
-from typing import List
-from pytest import MonkeyPatch
+from .restore_names import restore_names
 
 
-def test_restore_only_none_names(monkeypatch: MonkeyPatch) -> None:
-    # Определяем замещающую функцию
-    def restore_only_none_names(users: List[dict]) -> None:
-        for user in users:
-            if user["first_name"] is None:
-                user["first_name"] = user["full_name"].split()[0]
-
-    # Используем monkeypatch для замены функции restore_names на замещающую
-    monkeypatch.setattr(
-        "app.restore_names.restore_names", restore_only_none_names
-    )
-
-    # Тестовые данные
+def test_restore_names() -> None:  # Добавлена аннотация возвращаемого типа
+    # Тест 1: Пользователь с first_name равным None
     users = [
-        {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
-        {"first_name": None, "last_name": "Adams", "full_name": "Mike Adams"}
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        }
     ]
-
-    # Вызываем функцию (замещённую версию)
     restore_names(users)
-
-    # Проверяем, что имена были восстановлены
     assert users[0]["first_name"] == "Jack"
-    assert users[1]["first_name"] == "Mike"
+
+    # Тест 2: Пользователь с отсутствующим first_name
+    users = [
+        {
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == "Mike"
+
+    # Тест 3: Пользователь с уже заполненным first_name
+    users = [
+        {
+            "first_name": "John",
+            "last_name": "Doe",
+            "full_name": "John Doe",
+        }
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == "John"
+
+    # Тест 4: Пользователь с некорректным форматом full_name (только фамилия)
+    users = [
+        {
+            "last_name": "Smith",
+            "full_name": "Smith",
+        }
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == ""  # Ожидается пустая строка
+
+    # Тест 5: Пользователь с пустым full_name
+    users = [
+        {
+            "last_name": "Johnson",
+            "full_name": "",
+        }
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == ""
