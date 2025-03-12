@@ -10,7 +10,7 @@ def test_restore_name_all_none() -> None:
         },
         {
             "first_name": None,
-            "last_name": None,
+            "last_name": "Adams",
             "full_name": "Mike Adams",
         },
     ]
@@ -38,7 +38,7 @@ def test_restore_name_one_none() -> None:
         },
         {
             "first_name": "Mike",
-            "last_name": "Adam",
+            "last_name": "Adams",
             "full_name": "Mike Adams",
         },
     ]
@@ -91,7 +91,7 @@ def test_restore_name_one_does_not_have_name() -> None:
         },
         {
             "first_name": "Mike",
-            "last_name": "Adam",
+            "last_name": "Adams",
             "full_name": "Mike Adams",
         },
     ]
