@@ -14,8 +14,8 @@ def test_restore_name_all_none() -> None:
             "full_name": "Mike Adams",
         },
     ]
-
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -42,8 +42,8 @@ def test_restore_name_one_none() -> None:
             "full_name": "Mike Adams",
         },
     ]
-
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -68,7 +68,8 @@ def test_restore_name_both_does_not_have_name() -> None:
             "full_name": "Mike Adams",
         },
     ]
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -94,7 +95,8 @@ def test_restore_name_one_does_not_have_name() -> None:
             "full_name": "Mike Adams",
         },
     ]
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
