@@ -20,7 +20,7 @@ from app.restore_names import restore_names
         ),
         (
             [
-                {"first_name": "", "last_name": "Smith",
+                {"last_name": "Smith",
                  "full_name": "John Smith"}
             ],
             [
