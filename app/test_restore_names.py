@@ -64,21 +64,18 @@ from app.restore_names import restore_names
     (
         [
             {
-                "first_name": "Wrong",
-                "last_name": "Holy",
-                "full_name": "Jack Holy"
+                "first_name": None,
+                "last_name": "Smith"
             }
         ],
         [
             {
-                "first_name": "Jack",
-                "last_name": "Holy",
-                "full_name": "Jack Holy"
+                "first_name": None,
+                "last_name": "Smith"
             }
         ]
-    ),
+    )
 ])
 def test_restore_names(users: list[dict], result: list[dict]) -> None:
     restore_names(users)
     assert users == result
-# write your tests here
