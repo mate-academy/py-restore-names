@@ -17,5 +17,5 @@ def test_restore_names() -> None:
     ]
     restore_names(users)
     for user in users:
-        assert user[0].get("first_name") == "Jack"
-        assert user[1].get("first_name") == "Mike"
+        assert users[0]["first_name"] == "Jack"
+        assert users[1]["first_name"] == "Mike"
