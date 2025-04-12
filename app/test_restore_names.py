@@ -16,7 +16,7 @@ def test_restore_first_name_when_empty() -> None:
         {"full_name": "John Doe"}
     ]
     restore_names(users)
-    assert users[0]["first_name"] != "John"
+    assert users[0]["first_name"] == "John"
 
 
 def test_no_change_when_first_name_exists() -> None:
