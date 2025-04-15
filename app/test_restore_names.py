@@ -23,3 +23,15 @@ def test_restore_names(users: list, expected_first_names: list) -> None:
     restore_names(users)
     for user, expected in zip(users, expected_first_names):
         assert user["first_name"] == expected
+
+
+@pytest.mark.parametrize(
+    "users, expected_first_name",
+    [
+        ([{"full_name": "Tom Hanks"}], "Tom")
+    ]
+)
+def test_when_first_name_is_absent(users: list,
+                                   expected_first_name: list) -> None:
+    restore_names(users)
+    assert users[0]["first_name"] == expected_first_name
