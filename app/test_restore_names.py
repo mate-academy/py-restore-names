@@ -8,7 +8,8 @@ def test_restore_missing_first_name() -> None:
     ]
     expected = [
         {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"},
-        {"first_name": "Alice", "last_name": "Smith", "full_name": "Alice Smith"},
+        {"first_name": "Alice", "last_name": "Smith",
+         "full_name": "Alice Smith"},
     ]
     restore_names(users)
     assert users == expected
