@@ -1,26 +1,30 @@
 import pytest
 from app.restore_names import restore_names
 
-
 class TestRestoreNames:
     @pytest.mark.parametrize(
-        "users, first_users",
+        "users",
         [
             {
                 "first_name": None,
                 "full_name": "Jack Holy",
             },
             {
-                "first_name": "Joe",
+                "first_name": "Mike",
                 "full_name": "Mike Adams",
             },
-        ]
+
+        {
+            "first_name": "Jack",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": "Mike",
+            "full_name": "Mike Adams",
+        },
+    ]
     )
-    def test_restore_first_name_in_users(
-            self,
-            users: str,
-            first_users: str
-    ) -> None:
-        result = first_users
-        restore_names(result)
-        assert first_users["first_name"] == result
+    def test_restore_first_name_in_users(self, users, expected_first_name):
+        result = expected_first_name
+        restore_names(users)
+        assert expected_first_name["first_name"] == result
