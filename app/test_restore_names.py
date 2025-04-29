@@ -34,7 +34,6 @@ from app.restore_names import restore_names
             ]
         )
     ])
-def test_restore_name_function(input_data: list, expected: list):
+def test_restore_name_function(input_data: list, expected: list) -> None:
     restore_names(input_data)
     assert input_data == expected
-
