@@ -1,5 +1,7 @@
+from typing import List
 import pytest
 from app.restore_names import restore_names
+
 
 @pytest.mark.parametrize(
     "input_user, expected_user",
@@ -10,6 +12,7 @@ from app.restore_names import restore_names
 
     ]
 )
-def test_should_return_correct_result(input_user, expected_user) -> None:
+def test_should_return_correct_result(input_user: List[dict],
+                                      expected_user: str) -> None:
     restore_names(input_user)
     assert input_user[0]["first_name"] == expected_user
