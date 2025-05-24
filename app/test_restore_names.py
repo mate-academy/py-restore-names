@@ -4,7 +4,8 @@ from app.restore_names import restore_names
 
 @mock.patch("app.restore_names.valid_google_url")
 @mock.patch("app.restore_names.has_internet_connection")
-def test_restore_names_success(mock_inet: mock.Mock, mock_url: mock.Mock) -> None:
+def test_restore_names_success(mock_inet: mock.Mock,
+                               mock_url: mock.Mock) -> None:
     mock_inet.return_value = True
     mock_url.return_value = True
 
