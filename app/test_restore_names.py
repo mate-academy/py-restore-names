@@ -19,7 +19,8 @@ def test_restore_names_success(mock_inet: mock.Mock, mock_url: mock.Mock) -> Non
 
 @mock.patch("app.restore_names.valid_google_url")
 @mock.patch("app.restore_names.has_internet_connection")
-def test_restore_names_no_internet(mock_inet: mock.Mock, mock_url: mock.Mock) -> None:
+def test_restore_names_no_internet(mock_inet: mock.Mock,
+                                   mock_url: mock.Mock) -> None:
     mock_inet.return_value = False
     mock_url.return_value = True
 
@@ -34,7 +35,8 @@ def test_restore_names_no_internet(mock_inet: mock.Mock, mock_url: mock.Mock) ->
 
 @mock.patch("app.restore_names.valid_google_url")
 @mock.patch("app.restore_names.has_internet_connection")
-def test_restore_names_invalid_url(mock_inet: mock.Mock, mock_url: mock.Mock) -> None:
+def test_restore_names_invalid_url(mock_inet: mock.Mock,
+                                   mock_url: mock.Mock) -> None:
     mock_inet.return_value = True
     mock_url.return_value = False
 
