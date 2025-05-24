@@ -2,8 +2,8 @@ from unittest import mock
 from app.restore_names import restore_names
 
 
-@mock.patch("restore_names.valid_google_url")
-@mock.patch("restore_names.has_internet_connection")
+@mock.patch("app.restore_names.valid_google_url")
+@mock.patch("app.restore_names.has_internet_connection")
 def test_restore_names_success(
     mock_inet: mock.Mock, mock_url: mock.Mock
 ) -> None:
