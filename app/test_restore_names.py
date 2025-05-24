@@ -108,11 +108,12 @@ from app.restore_names import restore_names
         [],
     ),
 ])
-def test_restore_names(users: list, expected: dict) -> None:
+def test_restore_names(users: list, expected: list) -> None:
     restore_names(users)
     assert users == expected
 
 
 def test_restore_names_does_not_return() -> None:
     users = [{"first_name": None, "full_name": "Alice Johnson"}]
-    assert restore_names(users) is None
+    result = restore_names(users)
+    assert result is None
