@@ -118,6 +118,7 @@ def test_restore_names_does_not_return() -> None:
     result = restore_names(users)
     assert result is None
 
+
 def test_restore_names_changes_none() -> None:
     users = [{"first_name": None, "full_name": "John Smith"}]
     restore_names(users)
