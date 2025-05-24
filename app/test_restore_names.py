@@ -1,5 +1,5 @@
 from unittest import mock
-from restore_names import restore_names
+from app.restore_names import restore_names
 
 
 @mock.patch("restore_names.valid_google_url")
@@ -15,8 +15,8 @@ def test_restore_names_success(
     mock_url.assert_called_once()
 
 
-@mock.patch("restore_names.valid_google_url")
-@mock.patch("restore_names.has_internet_connection")
+@mock.patch("app.restore_names.valid_google_url")
+@mock.patch("app.restore_names.has_internet_connection")
 def test_restore_names_no_internet(
     mock_inet: mock.Mock, mock_url: mock.Mock
 ) -> None:
@@ -28,8 +28,8 @@ def test_restore_names_no_internet(
     mock_url.assert_not_called()
 
 
-@mock.patch("restore_names.valid_google_url")
-@mock.patch("restore_names.has_internet_connection")
+@mock.patch("app.restore_names.valid_google_url")
+@mock.patch("app.restore_names.has_internet_connection")
 def test_restore_names_invalid_url(
     mock_inet: mock.Mock, mock_url: mock.Mock
 ) -> None:
