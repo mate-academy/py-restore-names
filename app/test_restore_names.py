@@ -1,33 +1,35 @@
 from unittest import mock
+from restore_names import restore_names
 
 
-@mock.patch("app.main.valid_google_url")
-@mock.patch("app.main.has_internet_connection")
-def test_can_access_google_page_accessible(
-    mocked_valid_google_url: mock.Mock,
-    mocked_has_internet_connection: mock.Mock
-) -> None:
-    mocked_valid_google_url.return_value = True
-    mocked_has_internet_connection.return_value = True
-    mocked_valid_google_url.assert_called_once()
+@mock.patch("restore_names.valid_google_url")
+@mock.patch("restore_names.has_internet_connection")
+def test_restore_names_success(mock_inet, mock_url):
+    mock_inet.return_value = True
+    mock_url.return_value = True
+
+    assert restore_names() is True
+    mock_inet.assert_called_once()
+    mock_url.assert_called_once()
 
 
-@mock.patch("app.main.valid_google_url")
-@mock.patch("app.main.has_internet_connection")
-def test_can_access_google_page_no_internet(
-    mocked_valid_google_url: mock.Mock,
-    mocked_has_internet_connection: mock.Mock
-) -> None:
-    mocked_valid_google_url.return_value = True
-    mocked_has_internet_connection.return_value = False
-    mocked_valid_google_url.assert_called_once()
+@mock.patch("restore_names.valid_google_url")
+@mock.patch("restore_names.has_internet_connection")
+def test_restore_names_no_internet(mock_inet, mock_url):
+    mock_inet.return_value = False
+    mock_url.return_value = True
+
+    assert restore_names() is False
+    mock_inet.assert_called_once()
+    mock_url.assert_not_called()
 
 
-@mock.patch("app.main.valid_google_url")
-@mock.patch("app.main.has_internet_connection")
-def test_can_access_google_page_with_invalid_url(
-    mocked_url: mock.Mock, mocked_internet_connection: mock.Mock
-) -> None:
-    mocked_url.return_value = False
-    mocked_internet_connection.return_value = True
-    mocked_url.assert_not_called()
+@mock.patch("restore_names.valid_google_url")
+@mock.patch("restore_names.has_internet_connection")
+def test_restore_names_invalid_url(mock_inet, mock_url):
+    mock_inet.return_value = True
+    mock_url.return_value = False
+
+    assert restore_names() is False
+    mock_inet.assert_called_once()
+    mock_url.assert_called_once()
