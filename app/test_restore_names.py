@@ -31,4 +31,5 @@ from app.restore_names import restore_names
     ]
 )
 def test_add_first_name(prediction: list, expected: list) -> None:
-    assert restore_names(prediction) == expected
+    restore_names(prediction)
+    assert prediction == expected
