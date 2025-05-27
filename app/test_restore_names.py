@@ -1,5 +1,3 @@
-from typing import Callable
-
 from app.restore_names import restore_names
 
 
