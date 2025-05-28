@@ -30,6 +30,6 @@ from app.restore_names import restore_names
         )
     ]
 )
-def test_restore_names(input_list: list, out_list):
+def test_restore_names(input_list: list, out_list: list) -> None:
     restore_names(input_list)
     assert input_list == out_list
