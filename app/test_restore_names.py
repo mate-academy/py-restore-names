@@ -2,7 +2,6 @@ import pytest
 from typing import List
 from app.restore_names import restore_names
 
-# write your tests here
 
 @pytest.mark.parametrize(
     "prediction, expected",
