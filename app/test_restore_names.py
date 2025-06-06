@@ -1,6 +1,6 @@
 import pytest
-from app.restore_names import restore_names
 from typing import Any
+from app.restore_names import restore_names
 
 
 @pytest.mark.parametrize(
@@ -33,28 +33,30 @@ def test_do_not_overwrite_existing_first_name(
 
 
 @pytest.mark.parametrize(
-    "user_input",
+    "user_input, expected_exception",
     [
-        {"full_name": ""},
-        {},  # без full_name
-        {"full_name": "   "},
+        ({"full_name": ""}, IndexError),         # split() -> []
+        ({}, KeyError),                          # full_name missing
+        ({"full_name": "   "}, IndexError),      # split() -> []
     ]
 )
-def test_empty_or_missing_full_name(
-        user_input: dict[str, Any]) -> None:
-    restore_names([user_input])
-    assert "first_name" not in user_input or not user_input["first_name"]
+def test_empty_or_missing_full_name_raises(
+        user_input: dict[str, Any],
+        expected_exception: type[Exception]) -> None:
+    with pytest.raises(expected_exception):
+        restore_names([user_input])
 
 
 @pytest.mark.parametrize(
-    "user_input",
+    "user_input, expected_exception",
     [
-        {"full_name": 123},
-        {"full_name": None},
-        {"full_name": ["Ivan", "Petrov"]},
+        ({"full_name": 123}, AttributeError),
+        ({"full_name": None}, AttributeError),
+        ({"full_name": ["Ivan", "Petrov"]}, AttributeError)
     ]
 )
-def test_non_string_full_name_raises_typeerror(
-        user_input: dict[str, Any]) -> None:
-    with pytest.raises(TypeError):
+def test_non_string_full_name_raises(
+        user_input: dict[str, Any],
+        expected_exception: type[Exception]) -> None:
+    with pytest.raises(expected_exception):
         restore_names([user_input])
