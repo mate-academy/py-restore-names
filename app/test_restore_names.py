@@ -20,7 +20,7 @@ from app.restore_names import restore_names
         ),
     ],
 )
-def test_restore_names_missing_or_none_first_name(
+def test_restore_names_missing_or_none_first_nam(
     users: List[Dict], expected_first_names: List[str]
 ) -> None:
     restore_names(users)
