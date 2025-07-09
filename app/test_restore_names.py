@@ -1,8 +1,11 @@
 import unittest
 from app.restore_names import restore_names
 
+
 class UserTestCase(unittest.TestCase):
-    def setUp(self):
+
+
+    def setUp(self) -> None:
         self.user_with_none = {
             "first_name": None,
             "last_name": "Holy",
@@ -18,20 +21,25 @@ class UserTestCase(unittest.TestCase):
             "full_name": "Anna Smith"
         }
 
-    def test_restore_from_none(self):
+
+    def test_restore_from_none(self) -> None:
         users = [self.user_with_none.copy()]
         restore_names(users)
         self.assertEqual(users[0]["first_name"], "Jack")
 
-    def test_restore_from_missing(self):
+
+    def test_restore_from_missing(self) -> None:
         users = [self.user_without_first_name.copy()]
         restore_names(users)
         self.assertEqual(users[0]["first_name"], "Mike")
 
-    def test_dont_override_existing_first_name(self):
+
+    def test_dont_override_existing_first_name(self) -> None:
         users = [self.user_with_first_name.copy()]
         restore_names(users)
         self.assertEqual(users[0]["first_name"], "Anna")
+
+
 
 if __name__ == "__main__":
     unittest.main()
