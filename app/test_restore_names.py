@@ -6,8 +6,8 @@ from app.restore_names import restore_names
     "param, count",
     [
         (
-            [{ "first_name": None,  "full_name": "Jack Holy"}],
-            [{ "first_name": "Jack",  "full_name": "Jack Holy"}]
+            [{"first_name": None, "full_name": "Jack Holy"}],
+            [{"first_name": "Jack", "full_name": "Jack Holy"}]
         )
     ]
 )
