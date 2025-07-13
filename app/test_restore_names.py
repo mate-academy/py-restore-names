@@ -7,7 +7,11 @@ def test_restore_names_basic() -> None:
     users: List[Dict[str, Any]] = [
         {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
         {"last_name": "Adams", "full_name": "Mike Adams"},
-        {"first_name": "Alice", "last_name": "Smith", "full_name": "Alice Smith"},
+        {
+            "first_name": "Alice",
+            "last_name": "Smith",
+            "full_name": "Alice Smith",
+        },
     ]
 
     restore_names(users)
@@ -45,7 +49,11 @@ def test_restore_names_missing_full_name() -> None:
 
 def test_restore_names_full_name_with_multiple_words() -> None:
     users: List[Dict[str, Any]] = [
-        {"first_name": None, "last_name": "Smith", "full_name": "John Michael Smith"},
+        {
+            "first_name": None,
+            "last_name": "Smith",
+            "full_name": "John Michael Smith",
+        },
     ]
     restore_names(users)
     assert users[0]["first_name"] == "John"
