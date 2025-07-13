@@ -1,6 +1,5 @@
 from typing import List, Dict, Any
-
-from app import restore_names
+from app.restore_names import restore_names  # Імпортуємо функцію, а не модуль
 
 
 def test_restore_names_basic() -> None:
