@@ -1,4 +1,4 @@
-from app.restore import restore_names
+from app.restore_names import restore_names
 
 
 def test_restore_missing_first_name() -> None:
