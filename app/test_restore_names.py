@@ -25,18 +25,28 @@ def test_restore_names_missing_first_name() -> None:
     restore_names(users)
     assert users[0]["first_name"] == "Charlie"
 
+
 def test_restore_names_valid_first_name() -> None:
     users: List[Dict[str, str | None]] = [
-        {"first_name": "Emily", "last_name": "Stone", "full_name": "Emily Stone"}
+        {
+            "first_name": "Emily",
+            "last_name": "Stone",
+            "full_name": "Emily Stone"
+        }
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Emily"  # unchanged
+
 
 def test_restore_names_multiple_users() -> None:
     users: List[Dict[str, str | None]] = [
         {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
         {"last_name": "Adams", "full_name": "Mike Adams"},
-        {"first_name": "Susan", "last_name": "Clark", "full_name": "Susan Clark"}
+        {
+            "first_name": "Susan",
+            "last_name": "Clark",
+            "full_name": "Susan Clark"
+        }
     ]
     restore_names(users)
     expected: List[str] = ["Jack", "Mike", "Susan"]
