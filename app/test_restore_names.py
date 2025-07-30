@@ -2,15 +2,9 @@ from typing import List, Dict
 from app.restore_names import restore_names
 
 
-def restore_names(users: List[Dict[str, str | None]]) -> None:
-    for user in users:
-        if "first_name" not in user or user["first_name"] is None:
-            full_name = user.get("full_name")
-            if full_name:
-                user["first_name"] = full_name.split()[0]
-
-
 # 🧪 Test suite with annotations
+
+
 def test_restore_names_none_first_name() -> None:
     users: List[Dict[str, str | None]] = [
         {"first_name": None, "last_name": "Smith", "full_name": "Alice Smith"}
