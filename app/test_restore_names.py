@@ -1,4 +1,3 @@
-import pytest
 from typing import List, Dict
 from app.restore_names import restore_names
 
@@ -10,6 +9,7 @@ def restore_names(users: List[Dict[str, str | None]]) -> None:
             if full_name:
                 user["first_name"] = full_name.split()[0]
 
+
 # 🧪 Test suite with annotations
 def test_restore_names_none_first_name() -> None:
     users: List[Dict[str, str | None]] = [
@@ -17,6 +17,7 @@ def test_restore_names_none_first_name() -> None:
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Alice"
+
 
 def test_restore_names_missing_first_name() -> None:
     users: List[Dict[str, str | None]] = [
