@@ -101,8 +101,8 @@ def test_restore_full_name_is_single() -> None:
     assert users == [
         {
             "first_name": "Jack",
-            "last_name": "Holy",
-            "full_name": "Jack Holy",
+            "last_name": "",
+            "full_name": "Jack",
         },
         {
             "first_name": "Mike",
@@ -128,3 +128,15 @@ def test_missing_full_name() -> None:
     ]
     with pytest.raises(KeyError):
         restore_names(users)
+
+
+def test_first_name_with_spaces() -> None:
+    users = [
+        {
+            "first_name": "   ",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        }
+    ]
+    restore_names(users)
+    assert users[0]["first_name"] == "Jack"
