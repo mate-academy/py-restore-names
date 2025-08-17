@@ -1,44 +1,52 @@
 import pytest
 from app.restore_names import restore_names
+from typing import List, Dict, Any
 
 
-def test_restore_first_name_when_none():
-    users = [
-        {"first_name": None, "last_name": "Smith", "full_name": "John Smith"}
-    ]
+@pytest.mark.parametrize(
+    "users, expected_first_names",
+    [
+        (
+            [{
+                "first_name": None,
+                "last_name": "Smith",
+                "full_name": "John Smith"
+            }],
+            ["John"],
+        ),
+        ([{"last_name": "Adams", "full_name": "Mike Adams"}], ["Mike"]),
+        (
+            [
+                {
+                    "first_name": "Alice",
+                    "last_name": "Wonder",
+                    "full_name": "Alice Wonder",
+                }
+            ],
+            ["Alice"],
+        ),
+        (
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy"
+                },
+                {"last_name": "Adams", "full_name": "Mike Adams"},
+                {
+                    "first_name": "Eva",
+                    "last_name": "Brown",
+                    "full_name": "Eva Brown"
+                },
+            ],
+            ["Jack", "Mike", "Eva"],
+        ),
+    ],
+)
+def test_restore_names(
+    users: List[Dict[str, Any]], expected_first_names: List[str]
+) -> None:
     result = restore_names(users)
-
     assert result is None
-    assert users[0]["first_name"] == "John"
-
-
-def test_restore_first_name_when_missing():
-    users = [
-        {"last_name": "Adams", "full_name": "Mike Adams"}
-    ]
-
-    restore_names(users)
-
-    assert users[0]["first_name"] == "Mike"
-
-
-def test_first_name_not_changed_when_present():
-    users = [
-        {"first_name": "Alice", "last_name": "Wonder", "full_name": "Alice Wonder"}
-    ]
-    restore_names(users)
-
-    assert users[0]["first_name"] == "Alice"
-
-
-def test_multiple_users_restore():
-    users = [
-        {"first_name": None, "last_name": "Serhiienko", "full_name": "Vladyslav Serhiienko"},
-        {"last_name": "Serzhan", "full_name": "Anna Serzhan"},
-        {"first_name": "Catherine", "last_name": "X", "full_name": "Catherine X"}
-    ]
-    restore_names(users)
-
-    assert users[0]["first_name"] == "Vladyslav"
-    assert users[1]["first_name"] == "Anna"
-    assert users[2]["first_name"] == "Catherine"
+    for user, expected_first in zip(users, expected_first_names):
+        assert user["first_name"] == expected_first
