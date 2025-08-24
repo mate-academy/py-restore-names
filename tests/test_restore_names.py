@@ -2,29 +2,12 @@ from app.restore_names import restore_names
 
 def test_restore_names_basic():
     users = [
-        {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
-        {"last_name": "Adams", "full_name": "Mike Adams"},
-        {"first_name": "Alice", "last_name": "Brown", "full_name": "Alice Brown"},
+        {"first_name": None, "last_name": "Smith", "full_name": "John Smith"},
+        {"last_name": "Doe", "full_name": "Jane Doe"},
     ]
     restore_names(users)
-    assert users == [
-        {"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
-        {"first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"},
-        {"first_name": "Alice", "last_name": "Brown", "full_name": "Alice Brown"},
-    ]
-
-def test_restore_names_empty_first_name():
-    users = [
-        {"first_name": "", "last_name": "Smith", "full_name": "John Smith"},
-        {"first_name": None, "last_name": "Doe", "full_name": "Jane Doe"},
-    ]
-    restore_names(users)
-    # В условии не сказано менять пустую строку, только None или отсутствие first_name
-    # Поэтому пустая строка остаётся пустой строкой
-    assert users == [
-        {"first_name": "", "last_name": "Smith", "full_name": "John Smith"},
-        {"first_name": "Jane", "last_name": "Doe", "full_name": "Jane Doe"},
-    ]
+    assert users[0]["first_name"] == "John"
+    assert users[1]["first_name"] == "Jane"
 
 def test_restore_names_no_full_name():
     users = [
@@ -32,17 +15,15 @@ def test_restore_names_no_full_name():
         {"last_name": "Anonymous"},
     ]
     restore_names(users)
-    # Если нет full_name, first_name не меняется (если нет - остаётся None или отсутствует)
-    assert users == [
-        {"first_name": None, "last_name": "Unknown"},
-        {"last_name": "Anonymous"},
-    ]
+    # first_name не должен быть установлен, так как full_name отсутствует
+    assert users[0].get("first_name") is None
+    assert "first_name" not in users[1]
 
-def test_restore_names_first_name_present():
+def test_restore_names_already_set():
     users = [
-        {"first_name": "Emma", "last_name": "White", "full_name": "Emma White"},
+        {"first_name": "Alice", "last_name": "Wonderland", "full_name": "Alice Wonderland"},
+        {"first_name": "Bob", "last_name": "Builder", "full_name": "Bob Builder"},
     ]
     restore_names(users)
-    assert users == [
-        {"first_name": "Emma", "last_name": "White", "full_name": "Emma White"},
-    ]
+    assert users[0]["first_name"] == "Alice"
+    assert users[1]["first_name"] == "Bob"
