@@ -1,5 +1,6 @@
 from typing import List
 
+
 def restore_names(users: List[str]) -> List[str]:
     """
     Простая функция для примера:
