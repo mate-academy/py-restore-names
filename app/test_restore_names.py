@@ -8,8 +8,7 @@ from app.restore_names import restore_names
         ([{"first_name": None,
            "last_name": "Sparrow",
            "full_name": "Jack Sparrow"}], "Jack"),
-        ([{"first_name": None,
-           "last_name": "Man",
+        ([{"last_name": "Man",
            "full_name": "Iron Man"}], "Iron")
     ]
 )
