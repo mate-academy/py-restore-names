@@ -3,7 +3,11 @@ from app.main import restore_names
 
 def test_restore_first_name_none() -> None:
     users = [
-        {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Jack"
@@ -11,7 +15,10 @@ def test_restore_first_name_none() -> None:
 
 def test_restore_first_name_missing_key() -> None:
     users = [
-        {"last_name": "Adams", "full_name": "Mike Adams"},
+        {
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        },
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Mike"
@@ -19,7 +26,11 @@ def test_restore_first_name_missing_key() -> None:
 
 def test_does_not_override_existing_first_name() -> None:
     users = [
-        {"first_name": "Anna", "last_name": "Smith", "full_name": "Anna Smith"},
+        {
+            "first_name": "Anna",
+            "last_name": "Smith",
+            "full_name": "Anna Smith",
+        },
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Anna"
