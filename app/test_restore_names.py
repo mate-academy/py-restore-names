@@ -1,7 +1,7 @@
-import pytest
-from app.main import restore_names  # Certifique-se de ter __init__.py em app/
+from app.main import restore_names
 
-def test_restore_first_name_none():
+
+def test_restore_first_name_none() -> None:
     users = [
         {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
     ]
@@ -9,7 +9,7 @@ def test_restore_first_name_none():
     assert users[0]["first_name"] == "Jack"
 
 
-def test_restore_first_name_missing_key():
+def test_restore_first_name_missing_key() -> None:
     users = [
         {"last_name": "Adams", "full_name": "Mike Adams"},
     ]
@@ -17,15 +17,15 @@ def test_restore_first_name_missing_key():
     assert users[0]["first_name"] == "Mike"
 
 
-def test_does_not_override_existing_first_name():
+def test_does_not_override_existing_first_name() -> None:
     users = [
         {"first_name": "Anna", "last_name": "Smith", "full_name": "Anna Smith"},
     ]
     restore_names(users)
-    assert users[0]["first_name"] == "Anna"  # não deve mudar
+    assert users[0]["first_name"] == "Anna"
 
 
-def test_multiple_users_restoration():
+def test_multiple_users_restoration() -> None:
     users = [
         {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
         {"last_name": "Adams", "full_name": "Mike Adams"},
@@ -37,7 +37,7 @@ def test_multiple_users_restoration():
     assert users[2]["first_name"] == "Sara"
 
 
-def test_full_name_single_word():
+def test_full_name_single_word() -> None:
     users = [
         {"first_name": None, "full_name": "Plato"},
     ]
