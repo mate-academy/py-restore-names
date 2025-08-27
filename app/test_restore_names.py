@@ -39,7 +39,10 @@ def test_multiple_users_restoration() -> None:
 
 def test_full_name_single_word() -> None:
     users = [
-        {"first_name": None, "full_name": "Plato"},
+        {
+            "first_name": None,
+            "full_name": "Plato",
+        },
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Plato"
