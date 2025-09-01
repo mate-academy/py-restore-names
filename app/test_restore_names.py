@@ -33,8 +33,16 @@ def test_restore_names_with_missing_first_name() -> None:
 
 def test_restore_names_with_existing_first_name() -> None:
     users = [
-        {"first_name": "Alice", "last_name": "Smith", "full_name": "Alice Smith"},
-        {"first_name": "Bob", "last_name": "Brown", "full_name": "Bob Brown"},
+        {
+            "first_name": "Alice",
+            "last_name": "Smith",
+            "full_name": "Alice Smith",
+        },
+        {
+            "first_name": "Bob",
+            "last_name": "Brown",
+            "full_name": "Bob Brown",
+        },
     ]
     expected = users.copy()
     restore_names(users)
