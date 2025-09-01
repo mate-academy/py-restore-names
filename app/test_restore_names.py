@@ -1,6 +1,6 @@
 # app/test_restore_names.py
 
-from app.main import restore_names  # ajuste se o caminho for diferente
+from app.restore_names import restore_names
 
 
 def test_restore_names_with_missing_first_name() -> None:
