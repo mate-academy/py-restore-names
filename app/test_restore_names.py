@@ -51,4 +51,3 @@ def test_multiple_users_mixed_cases() -> None:
             "full_name": "Alice Brown",
         },
     ]
-
