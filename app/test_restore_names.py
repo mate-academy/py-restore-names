@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Optional, Any, Tuple
+from typing import Dict, List, Optional, Any
 import copy
 import pytest
 
@@ -21,18 +21,32 @@ def test_sets_first_name_when_missing_or_none() -> None:
     assert result is None
 
     expected: List[User] = [
-        {"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
-        {"first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"},
+        {
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        },
     ]
     assert users == expected
 
 
 def test_does_not_touch_existing_first_name() -> None:
     users: List[User] = [
-        {"first_name": "Alice", "last_name": "Smith",
-         "full_name": "Alice Smith"},
-        {"first_name": "Bob", "last_name": "Brown",
-         "full_name": "Robert Brown"},
+        {
+            "first_name": "Alice",
+            "last_name": "Smith",
+            "full_name": "Alice Smith",
+        },
+        {
+            "first_name": "Bob",
+            "last_name": "Brown",
+            "full_name": "Robert Brown",
+        },
     ]
     original: List[User] = copy.deepcopy(users)
 
