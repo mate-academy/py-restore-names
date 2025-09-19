@@ -1,6 +1,7 @@
 import pytest
 from app.restore_names import restore_names
 
+
 @pytest.mark.parametrize(
     "users, expected_first_names",
     [
@@ -26,7 +27,7 @@ from app.restore_names import restore_names
         ),
     ],
 )
-def test_restore_names(users, expected_first_names):
+def test_restore_names(users: list, expected_first_names: str) -> None:
     restore_names(users)
     result = [u["first_name"] for u in users]
     assert result == expected_first_names
