@@ -81,6 +81,7 @@ def test_restore_without_full_name() -> None:
         }
     ]
 
+
 def test_restore_names_with_anything() -> None:
     users = [
         {
