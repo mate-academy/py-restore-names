@@ -14,7 +14,8 @@ def test_restore_names_without_name() -> None:
             "full_name": "Mike Adams",
         }
     ]
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -41,7 +42,8 @@ def test_restore_names_without_last_name() -> None:
             "full_name": None,
         }
     ]
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -68,7 +70,8 @@ def test_restore_without_full_name() -> None:
             "full_name": "Mike Adams",
         }
     ]
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
@@ -95,7 +98,8 @@ def test_restore_names_with_anything() -> None:
             "full_name": "Mike Adams",
         }
     ]
-    assert restore_names(users) == [
+    restore_names(users)
+    assert users == [
         {
             "first_name": "Jack",
             "last_name": "Holy",
