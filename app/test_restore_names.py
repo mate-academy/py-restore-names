@@ -29,6 +29,31 @@ def test_restore_names_without_name() -> None:
     ]
 
 
+def test_restore_names_without_name_key() -> None:
+    users = [
+        {
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": None,
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+    ]
+    restore_names(users)
+    assert users == [
+        {
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+    ]
 # def test_restore_names_without_last_name() -> None:
 #     users = [
 #         {
