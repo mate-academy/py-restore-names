@@ -10,7 +10,7 @@ def test_restore_names_without_name() -> None:
         },
         {
             "first_name": None,
-            "last_name": None,
+            "last_name": "Adams",
             "full_name": "Mike Adams",
         }
     ]
@@ -38,8 +38,8 @@ def test_restore_names_without_last_name() -> None:
         },
         {
             "first_name": "Mike",
-            "last_name": "Adams",
-            "full_name": None,
+            "last_name": None,
+            "full_name": "Mike Adams",
         }
     ]
     restore_names(users)
@@ -66,8 +66,8 @@ def test_restore_without_full_name() -> None:
         },
         {
             "first_name": "Mike",
-            "last_name": None,
-            "full_name": "Mike Adams",
+            "last_name": "Adams",
+            "full_name": None,
         }
     ]
     restore_names(users)
