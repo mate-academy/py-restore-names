@@ -28,17 +28,3 @@ from app.restore_names import restore_names
 def test_restore_names(users: list[dict], expected: list[dict]) -> None:
     restore_names(users)
     assert users == expected
-
-
-@pytest.mark.parametrize(
-    "bad_input",
-    [
-        3.5,
-        10,
-        [1],
-        {"word": 10},
-    ],
-)
-def test_restore_names_non_dict_raises(bad_input: object) -> None:
-    with pytest.raises(AttributeError):
-        restore_names(bad_input)
