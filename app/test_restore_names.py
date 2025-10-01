@@ -13,7 +13,7 @@ from app.restore_names import restore_names
         ),
         (
             # input
-            [{"first_name": "", "last_name": "Holy", "full_name": "Jack Holy"}],
+            [{"last_name": "Holy", "full_name": "Jack Holy"}],
             # output esperado
             [{"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"}],
         ),
