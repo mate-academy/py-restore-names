@@ -1,7 +1,7 @@
 from app.restore_names import restore_names
 
 
-def test_restore_names_missing_and_none():
+def test_restore_names_missing_and_none() -> None:
     users = [
         {
             "first_name": None,
