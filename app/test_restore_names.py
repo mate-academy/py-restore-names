@@ -1,4 +1,3 @@
-import pytest
 from app.restore_names import restore_names
 
 users = [
@@ -10,11 +9,13 @@ users = [
         "first_name": None,
         "last_name": "Doe",
         "full_name": "John Doe",
-    },{
+    },
+    {
         "last_name": "Doe",
         "full_name": "   John    Doe",
     }
 ]
+
 
 def test_restore_names_correct_insert_full_name() -> None:
     restore_names(users)
@@ -28,6 +29,7 @@ def test_restore_names_first_name_when_none() -> None:
     assert users[1]["first_name"] == "John"
     assert users[1]["last_name"] == "Doe"
     assert users[1]["full_name"] == "John Doe"
+
 
 def test_restore_names_removes_white_spaces() -> None:
     restore_names(users)
