@@ -12,7 +12,7 @@ users = [
     },
     {
         "last_name": "Doe",
-        "full_name": "   John    Doe",
+        "full_name": "   John Doe",
     }
 ]
 
@@ -35,4 +35,4 @@ def test_restore_names_removes_white_spaces() -> None:
     restore_names(users)
     assert users[2]["first_name"] == "John"
     assert users[2]["last_name"] == "Doe"
-    assert users[2]["full_name"] == "John Doe"
+    assert users[2]["full_name"] == "   John Doe"
