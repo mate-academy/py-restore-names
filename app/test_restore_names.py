@@ -1,7 +1,25 @@
+from typing import List
+import pytest
+
 from app.restore_names import restore_names
 
 
-def test_restore_names_if_first_name_is_none() -> None:
+@pytest.fixture()
+def users_expected_template() -> List[dict]:
+    users_expected = [
+        {
+            "first_name": "Jack",
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        }
+    ]
+    yield users_expected
+    print("test finished")
+
+
+def test_restore_names_if_first_name_is_none(
+        users_expected_template: List[dict]
+) -> None:
     users = [
         {
             "first_name": None,
@@ -10,33 +28,21 @@ def test_restore_names_if_first_name_is_none() -> None:
         }
     ]
     restore_names(users=users)
-    users_expected = [
+    assert (
+        users == users_expected_template
+    )
+
+
+def test_restore_names_if_first_name_is_absent(
+    users_expected_template: List[dict]
+) -> None:
+    users = [
         {
-            "first_name": "Jack",
             "last_name": "Holy",
             "full_name": "Jack Holy",
         }
     ]
-    assert (
-        users == users_expected
-    )
-
-
-def test_restore_names_if_first_name_is_absent() -> None:
-    users = [
-        {
-            "last_name": "Adams",
-            "full_name": "Mike Adams",
-        }
-    ]
     restore_names(users=users)
-    users_expected = [
-        {
-            "first_name": "Mike",
-            "last_name": "Adams",
-            "full_name": "Mike Adams",
-        }
-    ]
     assert (
-        users == users_expected
+        users == users_expected_template
     )
