@@ -1,7 +1,9 @@
-from typing import List
+from typing import List, Dict
 
-
-def restore_names(users: List[dict]) -> None:
+def restore_names(users: List[Dict]) -> None:
     for user in users:
-        if "first_name" not in user or user["first_name"] is None:
-            user["first_name"] = user["full_name"].split()[0]
+        if not user.get("first_name"):  # covers missing, None, or empty
+            full_name = user.get("full_name", "")
+            parts = full_name.strip().split()
+            if parts:
+                user["first_name"] = parts[0]
