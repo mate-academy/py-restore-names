@@ -23,7 +23,11 @@ def test_restore_names_basic() -> None:
 
 def test_restore_names_existing_names_not_changed() -> None:
     users = [
-        {"first_name": "Anna", "last_name": "Stone", "full_name": "Anna Stone"},
+        {
+            "first_name": "Anna",
+            "last_name": "Stone",
+            "full_name": "Anna Stone",
+        },
     ]
     original = users.copy()
     restore_names(users)
