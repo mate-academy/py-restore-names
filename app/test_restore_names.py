@@ -2,7 +2,7 @@ import pytest
 from app.restore_names import restore_names
 
 
-def test_restore_names_from_readme_example():
+def test_restore_names_from_readme_example() -> None:
     # Arrange
     users = [
         {
@@ -35,7 +35,7 @@ def test_restore_names_from_readme_example():
     assert users == expected_users
 
 
-def test_restore_names_with_empty_list():
+def test_restore_names_with_empty_list() -> None:
     # Arrange
     users = []
 
@@ -46,10 +46,18 @@ def test_restore_names_with_empty_list():
     assert users == []
 
 
-def test_restore_names_does_not_change_correct_data():
+def test_restore_names_does_not_change_correct_data() -> None:
     # Arrange
-    users = [{"first_name": "John", "last_name": "Doe", "full_name": "John Doe"}]
-    expected_users = [{"first_name": "John", "last_name": "Doe", "full_name": "John Doe"}]
+    users = [
+        {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"}
+    ]
+    expected_users = [
+        {
+            "first_name": "John",
+            "last_name": "Doe",
+            "full_name": "John Doe",
+        }
+    ]
 
     # Act
     restore_names(users)
