@@ -3,24 +3,35 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture(scope="function")
-def users() -> list:
+def users_creator() -> list:
     return [
-        {"first_name": "Jack",
-         "last_name": "Holy",
-         "full_name": "Jack Holy"},
-        {"first_name": "Mike",
-         "last_name": "Adams",
-         "full_name": "Mike Adams"},
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        },
+        {
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        },
+        {
+            "first_name": "Olha",
+            "last_name": "Polzunkowa",
+            "full_name": "Olha Polzunkowa",
+        },
     ]
 
 
-def test_if_user_name_not_in_user(users: list) -> None:
-    for user in users:
-        if "first_name" not in user:
-            assert restore_names(users) == user["first_name"]
+def test_if_user_name_is_none(users_creator: list) -> None:
+    restore_names(users_creator)
+    assert users_creator[0]["first_name"] == "Jack"
 
 
-def test_if_user_name_already_in_user(users: list) -> None:
-    for user in users:
-        if user["first_name"] is None:
-            assert restore_names(users) == user["first_name"]
+def test_if_user_name_not_exist(users_creator: list) -> None:
+    restore_names(users_creator)
+    assert users_creator[1]["first_name"] == "Mike"
+
+
+def test_if_first_name_exist(users_creator: list) -> None:
+    restore_names(users_creator)
+    assert users_creator[2]["first_name"] == "Olha"
