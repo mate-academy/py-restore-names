@@ -5,7 +5,6 @@ from app.restore_names import restore_names
 @pytest.mark.parametrize(
     "users, expected",
     [
-        # 🔹 first_name отсутствует
         (
             [{"last_name": "Holy", "full_name": "Jack Holy"}],
             [
@@ -16,9 +15,14 @@ from app.restore_names import restore_names
                 }
             ],
         ),
-        # 🔹 first_name = None
         (
-            [{"first_name": None, "last_name": "Adams", "full_name": "Mike Adams"}],
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                }
+            ],
             [
                 {
                     "first_name": "Mike",
@@ -27,9 +31,14 @@ from app.restore_names import restore_names
                 }
             ],
         ),
-        # 🔹 first_name уже есть
         (
-            [{"first_name": "Liam", "last_name": "Gray", "full_name": "Liam Gray"}],
+            [
+                {
+                    "first_name": "Liam",
+                    "last_name": "Gray",
+                    "full_name": "Liam Gray",
+                }
+            ],
             [
                 {
                     "first_name": "Liam",
