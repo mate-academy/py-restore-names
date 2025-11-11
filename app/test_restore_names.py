@@ -6,14 +6,24 @@ test_cases = [
 
     (
         [
-            {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
+            {"first_name": None,
+             "last_name": "Holy",
+             "full_name": "Jack Holy"},
             {"last_name": "Adams", "full_name": "Mike Adams"},
-            {"first_name": "Alice", "last_name": "Smith", "full_name": "Alice Smith"},
+            {"first_name": "Alice",
+             "last_name": "Smith",
+             "full_name": "Alice Smith"},
         ],
         [
-            {"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
-            {"first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"},
-            {"first_name": "Alice", "last_name": "Smith", "full_name": "Alice Smith"},
+            {"first_name": "Jack",
+             "last_name": "Holy",
+             "full_name": "Jack Holy"},
+            {"first_name": "Mike",
+             "last_name": "Adams",
+             "full_name": "Mike Adams"},
+            {"first_name": "Alice",
+             "last_name": "Smith",
+             "full_name": "Alice Smith"},
         ]
     ),
 
@@ -52,6 +62,9 @@ test_cases = [
 
 
 @pytest.mark.parametrize("input_users, expected_users", test_cases)
-def test_restore_names_modifies_in_place(input_users, expected_users):
+def test_restore_names_modifies_in_place(
+        input_users: any,
+        expected_users: any
+) -> None:
     restore_names(input_users)
     assert input_users == expected_users
