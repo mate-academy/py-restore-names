@@ -3,8 +3,16 @@ from app.restore_names import restore_names
 
 def test_restore_names_when_first_name_is_none() -> None:
     users = [
-        {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
-        {"first_name": "Anna", "last_name": "Smith", "full_name": "Anna Smith"},
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy"
+        },
+        {
+            "first_name": "Anna",
+            "last_name": "Smith",
+            "full_name": "Anna Smith"
+        },
     ]
     restore_names(users)
     assert users[0]["first_name"] == "Jack"
