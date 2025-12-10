@@ -17,7 +17,7 @@ def users_template() -> List[dict]:
         }]
 
 
-def test_only_none_names(users_template: List[dict]) -> None:
+def test_only_none_names(users_template: list) -> None:
     del users_template[1]
     restore_names(users_template)
     assert users_template == [
@@ -27,7 +27,7 @@ def test_only_none_names(users_template: List[dict]) -> None:
     ]
 
 
-def test_only_missing_names(users_template: List[dict]) -> None:
+def test_only_missing_names(users_template: list) -> None:
     del users_template[0]
     restore_names(users_template)
     assert users_template == [
