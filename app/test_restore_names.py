@@ -57,6 +57,9 @@ from restore_names import restore_names
         ),
     ],
 )
-def test_restore_names(input_users: List[dict], expected_users: List[dict]) -> None:
+def test_restore_names(
+    input_users: List[dict],
+    expected_users: List[dict],
+) -> None:
     restore_names(input_users)
     assert input_users == expected_users
