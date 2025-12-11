@@ -33,7 +33,6 @@ import pytest
 )
 
 
-
 def test_restore_names(
     input_users: List[dict],
     expected_users: List[dict]
