@@ -41,25 +41,33 @@ def users_mixed() -> list[dict]:
     ]
 
 
-def test_restore_none_first_name(users_none_first_name) -> None:
+def test_restore_none_first_name(
+        users_none_first_name: list[dict]
+) -> None:
     restore_names(users_none_first_name)
     assert users_none_first_name[0]["first_name"] == "Jack"
     assert users_none_first_name[1]["first_name"] == "Mike"
 
 
-def test_restore_missing_first_name(users_missing_first_name) -> None:
+def test_restore_missing_first_name(
+        users_missing_first_name: list[dict]
+) -> None:
     restore_names(users_missing_first_name)
     assert users_missing_first_name[0]["first_name"] == "Jack"
     assert users_missing_first_name[1]["first_name"] == "Mike"
 
 
-def test_first_name_already_exists(users_existing_first_name) -> None:
+def test_first_name_already_exists(
+        users_existing_first_name: list[dict]
+) -> None:
     restore_names(users_existing_first_name)
     assert users_existing_first_name[0]["first_name"] == "Existing"
     assert users_existing_first_name[1]["first_name"] == "Already"
 
 
-def test_mixed_cases(users_mixed) -> None:
+def test_mixed_cases(
+        users_mixed: list[dict]
+) -> None:
     restore_names(users_mixed)
     assert users_mixed[0]["first_name"] == "Jack"
     assert users_mixed[1]["first_name"] == "Mike"
