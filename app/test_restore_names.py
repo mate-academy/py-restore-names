@@ -20,10 +20,10 @@ def users_template() -> List[dict]:
 
 
 def test_only_none_names(users_template: list) -> None:
-    users = copy.deepcopy(users_template)
-    del users[1]
-    restore_names(users)
-    assert users == [
+    users_list = copy.deepcopy(users_template)
+    del users_list[1]
+    restore_names(users_list)
+    assert users_list == [
         {"first_name": "Jack",
          "last_name": "Holy",
          "full_name": "Jack Holy"}
@@ -31,10 +31,10 @@ def test_only_none_names(users_template: list) -> None:
 
 
 def test_only_missing_names(users_template: list) -> None:
-    users = copy.deepcopy(users_template)
-    del users[0]
-    restore_names(users)
-    assert users == [
+    users_list = copy.deepcopy(users_template)
+    del users_list[0]
+    restore_names(users_list)
+    assert users_list == [
         {"first_name": "Mike",
          "last_name": "Adams",
          "full_name": "Mike Adams"}
