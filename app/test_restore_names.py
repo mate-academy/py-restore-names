@@ -19,7 +19,7 @@ def users_template() -> List[dict]:
         }]
 
 
-def test_only_none_names(users_template: list) -> None:
+def test_only_none_names1(users_template: list) -> None:
     users_list = copy.deepcopy(users_template)
     del users_list[1]
     restore_names(users_list)
@@ -30,7 +30,7 @@ def test_only_none_names(users_template: list) -> None:
     ]
 
 
-def test_only_missing_names(users_template: list) -> None:
+def test_only_missing_names1(users_template: list) -> None:
     users_list = copy.deepcopy(users_template)
     del users_list[0]
     restore_names(users_list)
