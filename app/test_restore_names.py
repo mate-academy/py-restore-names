@@ -1,7 +1,8 @@
+import pytest
 from app.restore_names import restore_names
 
 
-def test_restore_names_when_first_name_is_none():
+def test_restore_names_when_first_name_is_none() -> None:
     users = [
         {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
         {"first_name": None, "last_name": "Adams", "full_name": "Mike Adams"},
@@ -10,7 +11,8 @@ def test_restore_names_when_first_name_is_none():
     assert users[0]["first_name"] == "Jack"
     assert users[1]["first_name"] == "Mike"
 
-def test_restore_names_when_first_name_missing():
+
+def test_restore_names_when_first_name_missing() -> None:
     users = [
         {"last_name": "Holy", "full_name": "Jack Holy"},
         {"last_name": "Adams", "full_name": "Mike Adams"},
@@ -19,17 +21,18 @@ def test_restore_names_when_first_name_missing():
     assert users[0]["first_name"] == "Jack"
     assert users[1]["first_name"] == "Mike"
 
-def test_restore_names_does_not_change_existing_first_name():
+
+def test_restore_names_does_not_change_existing_first_name() -> None:
     users = [
         {"first_name": "John", "last_name": "Holy", "full_name": "Jack Holy"},
         {"first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"},
     ]
     restore_names(users)
-    # Проверяем, что существующие first_name не изменились
     assert users[0]["first_name"] == "John"
     assert users[1]["first_name"] == "Mike"
 
-def test_restore_names_mixed_cases():
+
+def test_restore_names_mixed_cases() -> None:
     users = [
         {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
         {"last_name": "Adams", "full_name": "Mike Adams"},
@@ -39,4 +42,3 @@ def test_restore_names_mixed_cases():
     assert users[0]["first_name"] == "Jack"
     assert users[1]["first_name"] == "Mike"
     assert users[2]["first_name"] == "Sarah"
-
