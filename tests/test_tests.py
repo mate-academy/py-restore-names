@@ -3,6 +3,10 @@ from typing import List
 import pytest
 
 from app import restore_names
+from pathlib import Path
+
+TEST_MAIN = Path(__file__).parent.parent / "app" / "test_restore_names.py"
+
 
 
 def test_restore_only_missing_names(monkeypatch):
@@ -13,7 +17,8 @@ def test_restore_only_missing_names(monkeypatch):
 
     monkeypatch.setattr(restore_names, "restore_names", restore_only_missing_names)
 
-    test_result = pytest.main(["app/test_restore_names.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
+
     assert (
         test_result.value == 1
     ), "Tests should check function with users whose first_name is equal to None"
@@ -27,7 +32,8 @@ def test_restore_only_none_names(monkeypatch):
 
     monkeypatch.setattr(restore_names, "restore_names", restore_only_none_names)
 
-    test_result = pytest.main(["app/test_restore_names.py"])
+    test_result = pytest.main([str(TEST_MAIN)])
+
     assert (
         test_result.value == 1
     ), "Tests should check function with users whose first_name is missing"
