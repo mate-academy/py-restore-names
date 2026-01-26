@@ -1,9 +1,12 @@
 import pytest
+
+
+from typing import List
 from app.restore_names import restore_names
 
 
 @pytest.fixture
-def users():
+def users() -> List[dict]:
     return [
         {
             "first_name": None,
@@ -17,7 +20,7 @@ def users():
     ]
 
 
-def test_restore_names(users):
+def test_restore_names(users: List[dict]) -> None:
     restore_names(users)
 
     assert users[0]["first_name"] == "Jack"
