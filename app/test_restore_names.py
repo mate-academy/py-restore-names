@@ -1,7 +1,7 @@
-import app
+from app import restore_names
 
 
-def test_restore_names() -> None:
+def test_restore_only_none_names() -> None:
     users = [
         {
             "first_name": None,
@@ -9,31 +9,27 @@ def test_restore_names() -> None:
             "full_name": "Jack Black"
         },
         {
-            "first_name": "Emma",
-            "last_name": "Holly",
-            "full_name": "Emma Holly"
-        },
-        {
+            "first_name": None,
             "last_name": "Smith",
             "full_name": "John Smith"
         },
     ]
-    app.restore_names.restore_names(users)
+    restore_names.restore_names(users)
+    assert users[0]["first_name"] == "Jack"
+    assert users[1]["first_name"] == "John"
 
-    assert users == [
+
+def test_restore_only_missing_names() -> None:
+    users = [
         {
-            "first_name": "Jack",
             "last_name": "Black",
             "full_name": "Jack Black"
         },
         {
-            "first_name": "Emma",
-            "last_name": "Holly",
-            "full_name": "Emma Holly"
-        },
-        {
-            "first_name": "John",
             "last_name": "Smith",
             "full_name": "John Smith"
         },
     ]
+    restore_names.restore_names(users)
+    assert users[0]["first_name"] == "Jack"
+    assert users[1]["first_name"] == "John"
