@@ -1,5 +1,6 @@
-from app.restore_names import restore_names
 import pytest
+from typing import Optional
+from app.restore_names import restore_names
 
 
 @pytest.mark.parametrize(
@@ -18,18 +19,7 @@ import pytest
 )
 def test_restore_names_parametrized(
     users: list[dict],
-    expected_first: str | None
+    expected_first: Optional[str]
 ) -> None:
     restore_names(users)
     assert users[0].get("first_name") == expected_first
-
-
-def restore_names(users: list[dict]) -> None:
-    for user in users:
-        if user.get("first_name") is None:
-            full_name = user.get("full_name")
-
-            if isinstance(full_name, str) and full_name.strip():
-                user["first_name"] = full_name.strip().split()[0]
-            else:
-                user["first_name"] = None
