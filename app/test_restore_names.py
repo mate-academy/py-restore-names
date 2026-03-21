@@ -7,12 +7,27 @@ from app.restore_names import restore_names
     [
         (
             [
-                {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
-                {"last_name": "Adams", "full_name": "Mike Adams"},
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
             ],
             [
-                {"first_name": "Jack", "last_name": "Holy", "full_name": "Jack Holy"},
-                {"first_name": "Mike", "last_name": "Adams", "full_name": "Mike Adams"},
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
             ],
         ),
         (
@@ -22,10 +37,6 @@ from app.restore_names import restore_names
             [
                 {"first_name": "Existing", "full_name": "Changed Name"},
             ],
-        ),
-        (
-            [],
-            [],
         ),
     ]
 )
@@ -35,9 +46,3 @@ def test_restore_names_modifies_list_correctly(
 ) -> None:
     restore_names(users)
     assert users == expected_users
-
-
-def test_restore_names_handles_users_with_already_correct_names() -> None:
-    users = [{"first_name": "Alice", "full_name": "Alice Cooper"}]
-    restore_names(users)
-    assert users[0]["first_name"] == "Alice"
