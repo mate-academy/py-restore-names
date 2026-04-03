@@ -1,7 +1,7 @@
 from app.restore_names import restore_names
 
 
-def test_restore_names_fill_none_value():
+def test_restore_names_fill_none_value() -> None:
     users = [
         {
             "first_name": None,
@@ -13,7 +13,7 @@ def test_restore_names_fill_none_value():
     assert users[0]["first_name"] == "Jack"
 
 
-def test_restore_names_none_value():
+def test_restore_names_none_value() -> None:
     users = [
         {
             "last_name": "Adams",
