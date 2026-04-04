@@ -45,6 +45,8 @@ def test_function_returns_none() -> None:
 
 
 def test_full_name_single_word() -> None:
-    users: List[Dict[str, Any]] = [{"first_name": None, "full_name": "Madonna"}]
+    users: List[Dict[str, Any]] = [
+        {"first_name": None, "full_name": "Madonna"}
+    ]
     restore_names(users)
     assert users[0]["first_name"] == "Madonna"
