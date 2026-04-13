@@ -1,4 +1,4 @@
-git from app import restore_names
+from app import restore_names
 
 
 def test_restores_missing_first_name() -> None:
