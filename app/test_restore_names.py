@@ -5,10 +5,10 @@ from app.restore_names import restore_names
 @pytest.mark.parametrize(
     "initial_user, expected_first_name",
     [
-        # Case 1: first_name is missing entirely
-        ({"last_name": "Adams", "full_name": "Mike Adams"}, "Mike"),
-        # Case 2: first_name is present but None
-        ({"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"}, "Jack"),
+        ({"last_name": "Adams",
+          "full_name": "Mike Adams"}, "Mike"),
+        ({"first_name": None,
+          "last_name": "Holy", "full_name": "Jack Holy"}, "Jack"),
     ],
 )
 def test_restore_names_works_with_missing_or_none_values(
