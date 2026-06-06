@@ -56,6 +56,8 @@ from app.restore_names import restore_names
         )
     ],
 )
-def test_restore_names_works_correctly(damaged_users, restored_users) -> None:
+def test_restore_names_works_correctly(
+    damaged_users: list, restored_users: list
+) -> None:
     restore_names(damaged_users)
     assert damaged_users == restored_users
