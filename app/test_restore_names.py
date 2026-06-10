@@ -22,13 +22,15 @@ def test_restore_only_missing_names() -> None:
 
 
 def test_does_not_overwrite_existing_first_name() -> None:
-    users = [{"first_name": "John", "last_name": "Doe", "full_name": "Jack Doe"}]
+    users = [{"first_name": "John", "last_name": "Doe",
+              "full_name": "Jack Doe"}]
     app.restore_names.restore_names(users)
     assert users[0]["first_name"] == "John"
 
 
 def test_restore_names_returns_none() -> None:
-    users = [{"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"}]
+    users = [{"first_name": None, "last_name": "Holy",
+              "full_name": "Jack Holy"}]
     result = app.restore_names.restore_names(users)
     assert result is None
 
