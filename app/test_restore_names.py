@@ -51,3 +51,4 @@ def test_a_few_users() -> None:
     ]
     restore_names.restore_names(users)
     assert users[0]["first_name"] == "Jack"
+    assert users[1]["first_name"] == "Her"
