@@ -1,5 +1,5 @@
 from typing import List
-import pytest
+
 
 def restore_names(users: List[dict]) -> None:
     for user in users:
