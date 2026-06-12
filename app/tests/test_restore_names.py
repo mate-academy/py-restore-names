@@ -11,4 +11,3 @@ def test_restore_only_missing_names():
     users = [{"full_name": "Mike Adams"}]
     restore_names(users)
     assert users[0]["first_name"] == "Mike"
-
