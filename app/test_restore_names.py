@@ -1,6 +1,6 @@
 import pytest
 
-from app.main import restore_names
+from app.restore_names import restore_names
 
 
 class TestRestoreNames:
