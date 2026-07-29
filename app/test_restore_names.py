@@ -1,4 +1,32 @@
 import pytest
 from app.restore_names import restore_names
 
-# write your tests here
+
+@pytest.mark.parametrize("input_users, expected_output", [
+    ([
+        {
+            "first_name": None,
+            "full_name": "Jack Holy",
+            "last_name": "Holy",
+        },
+        {
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+    ], [
+        {
+            "first_name": "Jack",
+            "full_name": "Jack Holy",
+            "last_name": "Holy",
+        },
+        {
+            "first_name": "Mike",
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+    ]),
+    ([], []),
+])
+def test_restore_names(input_users: list, expected_output: list) -> None:
+    restore_names(input_users)
+    assert input_users == expected_output
