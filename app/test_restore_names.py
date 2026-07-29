@@ -1,4 +1,23 @@
 import pytest
 from app.restore_names import restore_names
 
-# write your tests here
+
+@pytest.fixture()
+def users_with_failed_first_name() -> list[dict]:
+    return [{"first_name": None,
+             "last_name": "Holy",
+             "full_name": "Jack Holy",
+             },
+            {"last_name": "Adams",
+             "full_name": "Mike Adams",
+             }, ]
+
+
+def test_first_name_is_none(users_with_failed_first_name: list[dict]) -> None:
+    restore_names(users_with_failed_first_name)
+    assert users_with_failed_first_name[0]["first_name"] == "Jack"
+
+
+def test_first_name_is_empty(users_with_failed_first_name: list[dict]) -> None:
+    restore_names(users_with_failed_first_name)
+    assert users_with_failed_first_name[1]["first_name"] == "Mike"
