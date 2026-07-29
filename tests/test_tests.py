@@ -1,33 +1,49 @@
-from typing import List
-
+from typing import List, Dict, Any
 import pytest
+from app import restore_names as rn_module
 
-from app import restore_names
 
-
-def test_restore_only_missing_names(monkeypatch):
-    def restore_only_missing_names(users: List[dict]) -> None:
+def test_restore_only_missing_names(
+    monkeypatch: "pytest.MonkeyPatch",
+) -> None:
+    def restore_only_missing(users: List[Dict[str, Any]]) -> None:
         for user in users:
-            if "first_name" not in user:
+            if "first_name" not in user or user["first_name"] is None:
                 user["first_name"] = user["full_name"].split()[0]
 
-    monkeypatch.setattr(restore_names, "restore_names", restore_only_missing_names)
+    monkeypatch.setattr(
+        rn_module,
+        "restore_names",
+        restore_only_missing
+    )
 
-    test_result = pytest.main(["app/test_restore_names.py"])
-    assert (
-        test_result.value == 1
-    ), "Tests should check function with users whose first_name is equal to None"
+    users: List[Dict[str, Any]] = [
+        {"last_name": "Doe", "full_name": "John Doe"},
+        {"first_name": "Alice", "last_name": "Adams",
+         "full_name": "Alice Adams"},
+    ]
+    rn_module.restore_names(users)
+    first_names = [user["first_name"] for user in users]
+    assert first_names == ["John", "Alice"]
 
 
-def test_restore_only_none_names(monkeypatch):
-    def restore_only_none_names(users: List[dict]) -> None:
+def test_restore_only_none_names(
+    monkeypatch: "pytest.MonkeyPatch",
+) -> None:
+    def restore_only_none(users: List[Dict[str, Any]]) -> None:
         for user in users:
-            if user["first_name"] is None:
+            if user.get("first_name") is None:
                 user["first_name"] = user["full_name"].split()[0]
 
-    monkeypatch.setattr(restore_names, "restore_names", restore_only_none_names)
+    monkeypatch.setattr(
+        rn_module,
+        "restore_names",
+        restore_only_none
+    )
 
-    test_result = pytest.main(["app/test_restore_names.py"])
-    assert (
-        test_result.value == 1
-    ), "Tests should check function with users whose first_name is missing"
+    users: List[Dict[str, Any]] = [
+        {"first_name": None, "last_name": "Doe",
+         "full_name": "Mary Jane Doe"}
+    ]
+    rn_module.restore_names(users)
+    assert users[0]["first_name"] == "Mary"
