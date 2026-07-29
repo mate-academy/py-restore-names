@@ -1,4 +1,79 @@
 import pytest
 from app.restore_names import restore_names
+from typing import List
 
-# write your tests here
+
+@pytest.mark.parametrize(
+    "broken_data, restored",
+    [
+        (
+            [
+                {
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                }
+            ],
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ]
+        )
+    ]
+)
+def test_restore_missing_names(
+        broken_data: List[dict],
+        restored: List[dict]
+) -> None:
+    restore_names(broken_data)
+    assert broken_data == restored
+
+
+@pytest.mark.parametrize(
+    "broken_data, restored",
+    [
+        (
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "first_name": None,
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                }
+            ],
+            [
+                {
+                    "first_name": "Jack",
+                    "last_name": "Holy",
+                    "full_name": "Jack Holy",
+                },
+                {
+                    "first_name": "Mike",
+                    "last_name": "Adams",
+                    "full_name": "Mike Adams",
+                },
+            ]
+        )
+    ]
+)
+def test_restore_none_names(
+        broken_data: List[dict],
+        restored: List[dict]
+) -> None:
+    restore_names(broken_data)
+    assert broken_data == restored
