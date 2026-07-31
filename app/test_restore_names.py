@@ -77,6 +77,10 @@ class TestRestoreNames:
             id="handles empty list",
         ),
     ])
-    def test_restore_names_adds_first_name(self, users, expected) -> None:
+    def test_restore_names_adds_first_name(
+            self,
+            users: list[dict],
+            expected: list[dict],
+    ) -> None:
         restore_names(users)
         assert users == expected
