@@ -7,7 +7,9 @@ from app.restore_names import restore_names
     [
         # Case 1: first_name є None -> відновлюємо
         (
-            {"first_name": None, "last_name": "Holy", "full_name": "Jack Holy"},
+            {"first_name": None,
+             "last_name": "Holy",
+             "full_name": "Jack Holy"},
             "Jack",
         ),
         # Case 2: first_name відсутній -> відновлюємо
@@ -17,7 +19,9 @@ from app.restore_names import restore_names
         ),
         # Case 3: first_name вже є -> не змінюємо
         (
-            {"first_name": "John", "last_name": "Doe", "full_name": "John Doe"},
+            {"first_name": "John",
+             "last_name": "Doe",
+             "full_name": "John Doe"},
             "John",
         ),
         # Case 4: full_name складається з одного слова
