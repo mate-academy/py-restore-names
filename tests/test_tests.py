@@ -31,3 +31,4 @@ def test_restore_only_none_names(monkeypatch):
     assert (
         test_result.value == 1
     ), "Tests should check function with users whose first_name is missing"
+
