@@ -37,5 +37,5 @@ def test_restore_names_valid_inputs(
         input_list: list,
         expected_output: list
 ) -> None:
-    restore_names(input)
-    assert input == expected_output
+    restore_names(input_list)
+    assert input_list == expected_output
