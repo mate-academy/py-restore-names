@@ -1,4 +1,42 @@
-import pytest
 from app.restore_names import restore_names
 
-# write your tests here
+
+def test_restore_none_first_name() -> None:
+    users = [
+        {
+            "first_name": None,
+            "last_name": "Holy",
+            "full_name": "Jack Holy",
+        }
+    ]
+
+    restore_names(users)
+
+    assert users[0]["first_name"] == "Jack"
+
+
+def test_restore_missing_first_name() -> None:
+    users = [
+        {
+            "last_name": "Adams",
+            "full_name": "Mike Adams",
+        }
+    ]
+
+    restore_names(users)
+
+    assert users[0]["first_name"] == "Mike"
+
+
+def test_does_not_change_existing_first_name() -> None:
+    users = [
+        {
+            "first_name": "John",
+            "last_name": "Doe",
+            "full_name": "John Doe",
+        }
+    ]
+
+    restore_names(users)
+
+    assert users[0]["first_name"] == "John"
