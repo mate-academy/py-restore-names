@@ -8,65 +8,65 @@ from app.restore_names import restore_names
     "users, expected_users",
     [
         (
-                [
-                    {
-                        "first_name": None,
-                        "last_name": "Taylor",
-                        "full_name": "Hope Taylor",
-                    },
-                    {
-                        "last_name": "Miller",
-                        "full_name": "Faith Miller",
-                    },
-                ],
-                [
-                    {
-                        "first_name": "Hope",
-                        "last_name": "Taylor",
-                        "full_name": "Hope Taylor",
-                    },
-                    {
-                        "first_name": "Faith",
-                        "last_name": "Miller",
-                        "full_name": "Faith Miller",
-                    },
-                ],
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Taylor",
+                    "full_name": "Hope Taylor",
+                },
+                {
+                    "last_name": "Miller",
+                    "full_name": "Faith Miller",
+                },
+            ],
+            [
+                {
+                    "first_name": "Hope",
+                    "last_name": "Taylor",
+                    "full_name": "Hope Taylor",
+                },
+                {
+                    "first_name": "Faith",
+                    "last_name": "Miller",
+                    "full_name": "Faith Miller",
+                },
+            ],
         ),
         (
-                [
-                    {
-                        "first_name": "Love",
-                        "last_name": "Davis",
-                        "full_name": "Love Davis",
-                    },
-                ],
-                [
-                    {
-                        "first_name": "Love",
-                        "last_name": "Davis",
-                        "full_name": "Love Davis",
-                    },
-                ],
+            [
+                {
+                    "first_name": "Love",
+                    "last_name": "Davis",
+                    "full_name": "Love Davis",
+                },
+            ],
+            [
+                {
+                    "first_name": "Love",
+                    "last_name": "Davis",
+                    "full_name": "Love Davis",
+                },
+            ],
         ),
         (
-                [
-                    {
-                        "first_name": None,
-                        "last_name": "Wilson",
-                        "full_name": "Hope Faith Wilson",
-                    },
-                ],
-                [
-                    {
-                        "first_name": "Hope",
-                        "last_name": "Wilson",
-                        "full_name": "Hope Faith Wilson",
-                    },
-                ],
+            [
+                {
+                    "first_name": None,
+                    "last_name": "Wilson",
+                    "full_name": "Hope Faith Wilson",
+                },
+            ],
+            [
+                {
+                    "first_name": "Hope",
+                    "last_name": "Wilson",
+                    "full_name": "Hope Faith Wilson",
+                },
+            ],
         ),
         (
-                [],
-                [],
+            [],
+            [],
         ),
     ],
     ids=[
@@ -77,8 +77,8 @@ from app.restore_names import restore_names
     ],
 )
 def test_restore_names(
-        users: List[Dict[str, Any]],
-        expected_users: List[Dict[str, Any]],
+    users: List[Dict[str, Any]],
+    expected_users: List[Dict[str, Any]],
 ) -> None:
     restore_names(users)
     assert users == expected_users
