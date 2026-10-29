@@ -16,7 +16,7 @@ def test_restore_only_missing_names(monkeypatch):
     test_result = pytest.main(["app/test_restore_names.py"])
     assert (
         test_result.value == 1
-    ), "Tests should check function with users whose first_name is equal to None"
+    ), "Tests should check function with users whose first_name is missing"
 
 
 def test_restore_only_none_names(monkeypatch):
@@ -30,4 +30,4 @@ def test_restore_only_none_names(monkeypatch):
     test_result = pytest.main(["app/test_restore_names.py"])
     assert (
         test_result.value == 1
-    ), "Tests should check function with users whose first_name is missing"
+    ),  "Tests should check function with users whose first_name is equal to None"
