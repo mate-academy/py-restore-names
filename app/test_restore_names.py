@@ -1,8 +1,4 @@
-import pytest
-from app.restore_names import restore_names
-
-
-def test_restore_names_none_and_missing():
+def test_restore_names_none_and_missing() -> None:
     users = [
         {
             "first_name": None,
@@ -19,7 +15,7 @@ def test_restore_names_none_and_missing():
     assert users[1]["first_name"] == "Mike"
 
 
-def test_restore_names_already_present():
+def test_restore_names_already_present() -> None:
     users = [
         {
             "first_name": "John",
@@ -31,13 +27,13 @@ def test_restore_names_already_present():
     assert users[0]["first_name"] == "John"
 
 
-def test_restore_names_empty_list():
+def test_restore_names_empty_list() -> None:
     users = []
     restore_names(users)
     assert users == []
 
 
-def test_restore_names_compound_full_name():
+def test_restore_names_compound_full_name() -> None:
     users = [
         {
             "first_name": None,
@@ -48,7 +44,7 @@ def test_restore_names_compound_full_name():
     assert users[0]["first_name"] == "Anna"
 
 
-def test_restore_names_returns_none():
+def test_restore_names_returns_none() -> None:
     users = [{"first_name": None, "full_name": "Test User"}]
     result = restore_names(users)
     assert result is None
