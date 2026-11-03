@@ -34,5 +34,5 @@ def test_restore_names(users: dict, expected: str) -> None:
     assert users["first_name"] == expected
 
 
-def test_function_should_return_None() -> None:
+def test_function_should_return_none() -> None:
     assert restore_names([]) is None
