@@ -1,7 +1,5 @@
 from typing import Any
 
-import pytest
-
 from app import restore_names
 
 
