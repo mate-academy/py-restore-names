@@ -1,6 +1,6 @@
 from typing import Any
 
-from app import restore_names
+from app.restore_names import restore_names
 
 
 def test_restore_first_name_when_none() -> None:
