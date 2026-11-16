@@ -73,7 +73,7 @@ class TestRestoreNames:
     def test_restore_names(
         self,
         users: list[dict],
-        expected_result: list[dict] 
+        expected_result: list[dict]
     ) -> None:
         restore_names(users)
         assert users == expected_result
